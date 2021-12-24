@@ -224,6 +224,9 @@
                                                     البريد الإلكترةني
                                                 </th>
                                                 <th class="text-center">
+                                                    تصنيف المشرف
+                                                </th>
+                                                <th class="text-center">
                                                     تاريخ انشاء الحساب
                                                 </th>
                                                 <th class="text-center">
@@ -244,13 +247,21 @@
                                                         {{ $admin->admin_email }}
                                                     </td>
                                                     <td class="text-center">
+                                                        @if ($admin->admin_role == 0)
+                                                            مشرف
+                                                        @else
+                                                            مشرف خارق
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
                                                         {{ $admin->created_at }}
                                                     </td>
                                                     <td class="text-center">
                                                         <a
                                                             href="{{ route('admin.manage_admins.edit', $admin->admin_id) }}"><button
                                                                 type="button"
-                                                                class="btn btn-primary btn-sm">تعديل</button></a>
+                                                                class="btn btn-primary btn-sm">تعديل</button>
+                                                        </a>
                                                         <form style="display: inline-block"
                                                             action="{{ route('admin.manage_admins.destroy', $admin->admin_id) }}"
                                                             method="POST">

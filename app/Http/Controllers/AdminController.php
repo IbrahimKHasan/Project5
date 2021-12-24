@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -36,13 +37,17 @@ class AdminController extends Controller
      * @param  \App\Http\Requests\StoreAdminRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAdminRequest $request)
+    public function store(Request $request)
     {
         $request->validate([
             'admin_name'=>'required',
             'admin_email'=>'required|unique:admins',
-            'admin_password'=>'required',
-            'admin_role'=>'required'
+            'admin_password'=>'required|min:8'
+        ],[
+            'admin_name.required' => 'هذا الحقل مطلوب',
+            'admin_email.required' => 'هذا الحقل مطلوب',
+            'admin_email.unique' => 'البريد الإلكتروني موجود بالفعل',
+            'admin_password.required' => 'هذا الحقل مطلوب'
         ]);
 
         Admin::create([
@@ -51,7 +56,7 @@ class AdminController extends Controller
         'admin_password'=>$request->admin_password,
         'admin_role'=>$request->admin_role
         ]);
-        return redirect('admin/manage_admins')->with('succes', 'تمت الإضافة بنجاح');
+        return redirect('admin/manage_admins')->with('success', 'تمت الإضافة بنجاح');
     }
 
     /**
@@ -74,8 +79,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $admins=Admin::where("admin_id", "=", $id);
-        return view('pages.admin.manage_admin_edit',compact('admins'));
+        $admin=Admin::where("admin_id", "=", $id)->first();
+        return view('pages.admin.manage_admin_edit',compact('admin'));
     }
 
     /**
@@ -85,9 +90,21 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAdminRequest $request, Admin $admin)
+    public function update(UpdateAdminRequest $request, $id)
     {
-        //
+        $request->validate([
+            'admin_name'=>'required',
+            'admin_email'=>'required',
+            'admin_password'=>'required'
+        ]);
+
+        Admin::where('admin_id', $id)([
+        'admin_name'=>$request->admin_name,
+        'admin_email'=>$request->admin_email,
+        'admin_password'=>$request->admin_password,
+        'admin_role'=>$request->admin_role
+        ]);
+        return redirect('admin/manage_admins')->with('success', 'تم التعديل بنجاح');
     }
 
     /**
