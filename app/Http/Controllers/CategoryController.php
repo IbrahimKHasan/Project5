@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
@@ -15,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-       return view('pages.catrgories');
+        $categories = Category::all();
+        return view("pages.category.manage_category", compact("categories"));
     }
 
     /**
@@ -25,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view("pages.category.manage_category_create");
     }
 
     /**
@@ -34,9 +36,20 @@ class CategoryController extends Controller
      * @param  \App\Http\Requests\StoreCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category_name'=>'required',
+            'category_image'=>'required'
+        ]);
+        $image = 'IMG'.'-'.time().'.'.$request->category_image->extension();
+        $request->category_image->move(public_path('black/img'),$image);
+        Category::create([
+            'category_name'=>$request->category_name,
+            'category_image'=>$image
+        ]);
+        $categories = Category::all();
+        return view("pages.category.manage_category", compact("categories"));
     }
 
     /**
@@ -56,9 +69,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $category=Category::where('category_id',$id)->first();
+        return view("pages.category.manage_category_edit",compact("category"));
     }
 
     /**
@@ -68,9 +82,20 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(Request $request,$id)
     {
-        //
+        $request->validate([
+            'category_name'=>'required',
+            'category_image'=>'required'
+        ]);
+        $image = 'IMG'.'-'.time().'.'.$request->category_image->extension();
+        $request->category_image->move(public_path('black/img'),$image);
+        Category::where('category_id',$id)->update([
+            'category_name'=>$request->category_name,
+            'category_image'=>$image
+        ]);
+        // $categories = Category::all();
+        return redirect('admin/manage_categories');
     }
 
     /**
@@ -79,8 +104,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($category)
     {
-        //
+        Category::where('category_id',$category)->delete();
+        // $categories = Category::all();
+        // return view("pages.category.manage_category", compact("categories"));
+        return redirect('admin/manage_categories')->with('success','Admin deleted successfully');
     }
 }

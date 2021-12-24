@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 
 
 /*
@@ -47,7 +48,6 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'App\Http\Controllers\PageController@tables']);
 		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'App\Http\Controllers\PageController@typography']);
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'App\Http\Controllers\PageController@upgrade']);
-        Route::get('categories', ['as' => 'pages.categories', 'uses' => 'App\Http\Controllers\CategoryController']);
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -60,4 +60,8 @@ Route::group(['middleware' => 'auth'], function () {
 ################## For Admin #############################
 Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () {
 	Route::resource("manage_admins", AdminController::class);
+});
+################## For Category #############################
+Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () {
+	Route::resource("manage_categories", CategoryController::class);
 });
