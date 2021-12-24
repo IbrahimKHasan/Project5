@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -58,4 +60,8 @@ Route::group(['middleware' => 'auth'], function () {
 ################## For Admin #############################
 Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () {
 	Route::resource("manage_admins", AdminController::class);
+});
+################## For Category #############################
+Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () {
+	Route::resource("manage_categories", CategoryController::class);
 });
