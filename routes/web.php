@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 
 /*
@@ -55,3 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
+################## For Admin #############################
+Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () {
+	Route::resource("manage_admins", AdminController::class);
+});
