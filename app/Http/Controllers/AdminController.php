@@ -26,7 +26,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view("pages.admin.manage_admin_create");
+        $admins = Admin::all();
+        return view("pages.admin.manage_admin_create", compact("admins"));
     }
 
     /**
@@ -37,7 +38,20 @@ class AdminController extends Controller
      */
     public function store(StoreAdminRequest $request)
     {
-        
+        $request->validate([
+            'admin_name'=>'required',
+            'admin_email'=>'required|unique:admins',
+            'admin_password'=>'required',
+            'admin_role'=>'required'
+        ]);
+
+        Admin::create([
+        'admin_name'=>$request->admin_name,
+        'admin_email'=>$request->admin_email,
+        'admin_password'=>$request->admin_password,
+        'admin_role'=>$request->admin_role
+        ]);
+        return redirect('admin/manage_admins')->with('succes', 'تمت الإضافة بنجاح');
     }
 
     /**
@@ -86,6 +100,6 @@ class AdminController extends Controller
     {
         $admin = Admin::where("admin_id", "=", $id);
         $admin->delete();
-        return redirect('admin/manage_admins')->with('success','Admin deleted successfully');
+        return redirect('admin/manage_admins')->with('success','تم الحذف بنجاح');
     }
 }
