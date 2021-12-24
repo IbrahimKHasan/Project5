@@ -4,11 +4,12 @@
 <div class="content">
     <div class="row">
       <div class="col-md-12">
+        @include('alerts.success')
         <div class="card ">
           <div class="card-header text-right">
             <h4 class="card-title">جدول الأصناف</h4>
           </div>
-          <button class="btn ml-4 btn-success" style="width: 150px"><a class="text-white" href="{{route('admin.manage_categories.create')}}">إضافة</a></button>
+          <a class="text-white text-right" href="{{route('admin.manage_categories.create')}}"><button class="btn ml-4 btn-success" style="width: 150px">إضافة</button></a>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table tablesorter " id="">

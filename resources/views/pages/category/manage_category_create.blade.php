@@ -14,10 +14,12 @@
                             @include('alerts.success')
                             <div class="form-group">
                                 <label>الصنف</label>
-                                <input type="text" name="category_name" class="form-control" placeholder="الصنف">
+                                <input type="text" name="category_name" class="form-control {{ $errors->has('category_name') ? ' is-invalid' : '' }}" placeholder="الصنف">
+                                @include('alerts.feedback', ['field' => 'category_name'])
                             </div>
                                 <label>الصورة</label>
-                                <input type="file" name="category_image" class="form-control" >
+                                <input type="file" name="category_image" class="form-control {{ $errors->has('category_image') ? ' is-invalid' : '' }}" >
+                                @include('alerts.feedback', ['field' => 'category_image'])
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">إضافة</button>
