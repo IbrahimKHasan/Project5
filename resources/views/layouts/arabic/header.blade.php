@@ -165,7 +165,11 @@
                   </li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
+                        @csrf
+                        <button class="nav-item dropdown-item" style="cursor:pointer" type="submit">Log out</button>
+                    </form>
                   </li>
                 </ul>
               </li>

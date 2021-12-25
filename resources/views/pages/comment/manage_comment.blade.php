@@ -4,13 +4,9 @@
 <div class="content">
     <div class="row">
       <div class="col-md-12">
-        @include('alerts.success')
         <div class="card ">
           <div class="card-header text-right">
             <h4 class="card-title">جدول الأصناف</h4>
-          </div>
-          <a class="text-white text-right" href="{{route('admin.manage_categories.create')}}"><button class="btn ml-4 btn-success" style="width: 150px">إضافة</button></a>
-          <div class="card-body">
             <div class="table-responsive">
               <table class="table tablesorter " id="">
                 <thead class=" text-primary">
@@ -19,37 +15,37 @@
                       #
                     </th>
                     <th class="text-center">
-                      الإسم
+                      التعليق
                     </th>
                     <th class="text-center">
-                      الصورة
+                      اسم المعلق
                     </th>
                     <th class="text-center">
                      تاريخ الانشاء
                     </th>
                     <th class="text-center">
-                      التعديلات
+                      الحذف
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($comments as $comment)
                     <tr>
                       <td class="text-center">
-                        {{$category->category_id}}
+                        {{$comment->comment_id}}
                       </td>
                       <td class="text-center">
-                        {{$category->category_name}}
+                        {{$comment->comment}}
                       </td>
                       <td class="text-center">
-                        <img src='{{asset("black/img/$category->category_image")}}' alt="" width="90px" height="90px">
+                        {{$comment->name}}
                       </td>
                       <td class="text-center">
-                        {{$category->created_at}}
+                        {{$comment->created_at}}
                       </td>
                       <td class="text-center">
-                        <a href="{{route('admin.manage_categories.edit', $category->category_id)}}"><button type="button" class="btn btn-primary btn-sm">تعديل</button></a>
-                        <form style="display: inline-block" action="{{route('admin.manage_categories.destroy',$category->category_id)}}" method="POST">
+
+                        <form style="display: inline-block" action="{{route('admin.manage_comments.destroy',$comment->comment_id)}}" method="POST">
                           @csrf
                           @method("delete")
                           <button class="btn btn-danger btn-sm">حذف</button>
