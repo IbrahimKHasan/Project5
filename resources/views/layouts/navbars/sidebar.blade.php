@@ -17,6 +17,12 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
+            <li @if ($pageSlug == 'categories') class="active " @endif>
+                <a href="{{ route('home') }}">
+                    <i class="tim-icons icon-bullet-list-67"></i>
+                    <p>{{ __('Categories') }}</p>
+                </a>
+            </li>
             <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel" ></i>
