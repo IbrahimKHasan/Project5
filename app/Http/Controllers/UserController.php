@@ -43,14 +43,18 @@ class UserController extends Controller
         return view('users.edit',compact('user'));
     }
 
-    public function update_user(Request $request, User $user)
+    public function update_user(Request $request,$id)
     {
+
         $request->validate([
             'name' => 'required',
             'email' => 'required',
         ]);
+         User::where('id',$id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
 
-        $user->update($request->all());
 
         return redirect()->route('manage_user')
                         ->with('success','Product updated successfully');

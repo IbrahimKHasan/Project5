@@ -23,9 +23,10 @@
 </div> --}}
 <div class="row">
     <div class="col-md-12">
-        <form method="get" action="{{Route('update_user')}}" autocomplete="off">
+        <form method="post" action="{{route('update_user',$user->id)}}" autocomplete="off">
             <div class="card-body">
                     @csrf
+                    @method('patch')
                     @include('alerts.success')
 
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
