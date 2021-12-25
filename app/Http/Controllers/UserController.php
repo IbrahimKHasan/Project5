@@ -21,8 +21,9 @@ class UserController extends Controller
     }
     public function manage_user(){
 
-     $user=User::all();
-        return view('pages.manage_user',compact('user'));
+     $users=User::all();
+
+        return view('pages.manage_user',compact('users'));
     }
      /**
      * Store a newly created resource in storage.
@@ -36,10 +37,10 @@ class UserController extends Controller
 
             return redirect()->route('manage_user');
     }
-    public function edit_user(Request $request)
+    public function edit_user(User $user)
     {
-        ddd($request);
-        return view('users.edit',compact('request'));
+
+        return view('users.edit',compact('user'));
     }
 
     public function update_user(Request $request, User $user)
@@ -51,7 +52,7 @@ class UserController extends Controller
 
         $user->update($request->all());
 
-        return redirect()->route('show')
+        return redirect()->route('manage_user')
                         ->with('success','Product updated successfully');
     }
     public function destroy(User $user)
@@ -61,7 +62,7 @@ class UserController extends Controller
 
 
 
-        return redirect()->route('show')
+        return redirect()->route('manage_user')
                        ->with('success','Product deleted successfully');
 
     }

@@ -92,7 +92,7 @@
                       </td>
                       <td class="text-center">
                         <a href="{{route('edit', $user)}}"><button type="button" class="btn btn-primary btn-sm">تعديل</button></a>
-                        <form style="display: inline-block" action="{{route('edit',$user)}}" method="POST">
+                        <form style="display: inline-block" action="{{route('destroy',$user)}}" method="POST">
                           @csrf
                           @method("delete")
                           <button class="btn btn-danger btn-sm">حذف</button>
