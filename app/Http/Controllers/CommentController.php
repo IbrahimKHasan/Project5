@@ -58,6 +58,6 @@ class CommentController extends Controller
     public function destroy($comment)
     {
         Comment::where('comment_id',$comment)->delete();
-        return redirect('admin/manage_comments')->with('success','comment deleted successfully');
+        return redirect('admin/manage_comments')->with('success','تم حذف التعليق بنجاح');
     }
 }
