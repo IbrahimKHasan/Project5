@@ -1,5 +1,6 @@
 @extends('layouts.arabic.master')
-@section('title','الأصناف')
+@section('title','إدارة الأصناف')
+@section('cat-active','class=active')
 @section('content')
 <div class="content">
     <div class="row">
@@ -14,8 +15,8 @@
             <div class="table-responsive">
               <table class="table tablesorter " id="">
                 <thead class=" text-primary">
-                  <tr>
-                    <th class="text-center">
+                  <tr style="font-size:20px;font-weight:bolder">
+                    <th class="text-center " >
                       #
                     </th>
                     <th class="text-center">

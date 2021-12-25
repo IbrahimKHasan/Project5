@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html dir="rtl" lang="ar">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('black') }}/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('black') }}/img/favicon.png">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <!-- Icons -->
-    <link href="{{ asset('black') }}/css/nucleo-icons.css" rel="stylesheet" />
-    <!-- CSS -->
-    <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-    <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
-    <title>Document</title>
-</head>
-
+@extends('layouts.arabic.master')
+@section('title','إدارة المشرفين - تعديل')
+@section('admin-active','class=active')
+@section('content')
 <body>
     <div class="container mt-5">
         <div class="row">
@@ -76,5 +60,4 @@
         </div>
     </div>
 </body>
-
-</html>
+@endsection
