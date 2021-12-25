@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'login-page', 'page' => __('Reset password'), 'contentClass' => 'login-page'])
+@extends('layouts.app', ['class' => 'login-page', 'contentClass' => 'login-page'])
 
 @section('content')
     <div class="col-lg-5 col-md-7 ml-auto mr-auto">
@@ -6,10 +6,7 @@
             @csrf
 
             <div class="card card-login card-white">
-                <div class="card-header">
-                    <img src="{{ asset('black') }}/img/card-primary.png" alt="">
-                    <h1 class="card-title">{{ __('Reset password') }}</h1>
-                </div>
+                    <h1 style="color:#cf51de;font-weight: bolder" class="text-center mt-3">إعادة تهيئة كلمة المرور</h1>
                 <div class="card-body">
                     @include('alerts.success')
 
@@ -24,7 +21,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">{{ __('Send Password Reset Link') }}</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">إرسال رابط إعادة تهيئة كلمة المرور</button>
                 </div>
             </div>
         </form>

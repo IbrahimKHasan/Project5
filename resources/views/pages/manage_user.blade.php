@@ -1,6 +1,8 @@
-@extends('layouts.app', ['page' => __('manage_user'), 'pageSlug' => 'manage_user'])
-
+@extends('layouts.arabic.master')
+@section('title','إدارة الأصناف')
+@section('user-active','class=active')
 @section('content')
+<div class="content text-right">
 <div class="row">
     <div class="col-md-12">
         <form method="get" action="{{Route('create_user')}}" autocomplete="off">
@@ -41,10 +43,9 @@
                         </div>
                         <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('تأكيد كلمة السر ') }}">
                     </div>
+                    <button type="submit" class="btn btn-fill btn-primary">إضافة</button>
             </div>
-            <div class="card-footer">
-                <input type="submit" class="btn btn-fill btn-primary"></input>
-            </div>
+
         </form>
     </div>
 </div>

@@ -1,4 +1,6 @@
-@extends('layouts.app', ['page' => __('manage_user'), 'pageSlug' => 'manage_user'])
+@extends('layouts.arabic.master')
+@section('title','إدارة الأصناف')
+@section('user-active','class=active')
 @section('content')
 {{-- <div class="col-lg-6 col-md-6 col-sm-12 width">
     <div class="address">
@@ -21,6 +23,7 @@
         </form>
     </div>
 </div> --}}
+<div class="content text-right">
 <div class="row">
     <div class="col-md-12">
         <form method="post" action="{{route('update_user',$user->id)}}" autocomplete="off">
@@ -42,7 +45,6 @@
                     </div>
                     <div class="form-group">
                         <label>{{ __('كلمة السر') }}</label>
-
                     <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}">
 
                         <div class="input-group-prepend">
@@ -50,7 +52,7 @@
                                 <i class="tim-icons icon-lock-circle"></i>
                             </div>
                         </div>
-                        <input type="password" value="{{$user->password}}" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('كلمة السر ') }}">
+                        <input type="password" value="" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('كلمة السر ') }}">
                         @include('alerts.feedback', ['field' => 'password'])
                     </div>
                 </div>
@@ -60,13 +62,12 @@
                                 <i class="tim-icons icon-lock-circle"></i>
                             </div>
                         </div>
-                        <input type="password" value="{{$user->password}}" name="password_confirmation" class="form-control" placeholder="{{ __('تأكيد كلمة السر ') }}">
+                        <input type="password" value="" name="password_confirmation" class="form-control" placeholder="{{ __('تأكيد كلمة السر ') }}">
                     </div>
             </div>
-            <div class="card-footer">
-                <input type="submit" class="btn btn-fill btn-primary"></input>
-            </div>
+            <button type="submit" class="btn btn-fill btn-primary">تعديل</button>
         </form>
     </div>
+</div>
 </div>
 @endsection
