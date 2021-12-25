@@ -5,6 +5,7 @@
 <div class="content">
     <div class="row">
       <div class="col-md-12">
+        @include('alerts.success')
         <div class="card ">
           <div class="card-header text-right">
             <h4 class="card-title">جدول التعليقات</h4>
