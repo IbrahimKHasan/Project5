@@ -13,10 +13,10 @@
                     <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                <i class="tim-icons icon-email-85"></i>
+                                {{-- <i style="float:right" class="ml-auto mr-0 tim-icons icon-email-85"></i> --}}
                             </div>
                         </div>
-                        <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}">
+                        <input type="email" name="email" class="text-right form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="البريد الالكتروني">
                         @include('alerts.feedback', ['field' => 'email'])
                     </div>
                 </div>

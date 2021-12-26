@@ -27,7 +27,7 @@
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
     -->
-      <div class="sidebar-wrapper" >
+      <div class="sidebar-wrapper" style="background-color: #ff3f18; border-radius:5px" >
         <div class="logo">
           <div class="simple-text logo-normal" style="font-size: x-large;font-weight:bolder">
         لوحة التحكم

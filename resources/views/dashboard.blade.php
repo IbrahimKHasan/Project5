@@ -2,7 +2,7 @@
 @section('title','لوحة التحكم')
 @section('main-active','class=active')
 @section('content')
-<div class="content">
+<div class="content" >
     <div class="row">
       <div class="col-12">
         <div class="card card-chart">

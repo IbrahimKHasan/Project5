@@ -57,7 +57,7 @@ class UserController extends Controller
 
 
         return redirect()->route('manage_user')
-                        ->with('success','Product updated successfully');
+                        ->with('success','تم تعديل المستخدم بنجاح');
     }
     public function destroy(User $user)
     {
@@ -67,7 +67,7 @@ class UserController extends Controller
 
 
         return redirect()->route('manage_user')
-                       ->with('success','Product deleted successfully');
+                       ->with('success','تم اضافة المستخدم بنجاح');
 
     }
 }
