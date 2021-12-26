@@ -11,26 +11,26 @@
                     <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                <i class="tim-icons icon-email-85"></i>
+                                {{-- <i class="tim-icons icon-email-85"></i> --}}
                             </div>
                         </div>
-                        <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}">
+                        <input type="email" name="email" class="text-right form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="البريد الالكتروني">
                         @include('alerts.feedback', ['field' => 'email'])
                     </div>
                     <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                <i class="tim-icons icon-lock-circle"></i>
+                                {{-- <i class="tim-icons icon-lock-circle"></i> --}}
                             </div>
                         </div>
-                        <input type="password" placeholder="{{ __('Password') }}" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
+                        <input type="password" placeholder="كلمة المرور" name="password" class="text-right form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
                         @include('alerts.feedback', ['field' => 'password'])
                     </div>
                 </div>
                 <div class="card-footer">
                     <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">تسجيل الدخول</button>
-                    <div class="text-center mt-3" >
-                            <a style="color:#cf51de;font-weight: bolder;font-size:13px"  href="{{ route('password.request') }}" class="link footer-link">نسيت كلمة السر؟</a>
+                    <div class="text-center mt-3"style="color:#cf51de;font-weight: bolder" >
+                            <a href="{{ route('password.request') }}" class="link footer-link">نسيت كلمة السر؟</a>
                     </div>
                 </div>
             </div>
