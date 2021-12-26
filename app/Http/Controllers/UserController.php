@@ -39,8 +39,10 @@ class UserController extends Controller
             User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
+                'role'=>$data['role'],
                 'password' => Hash::make($data['password']),
             ]);
+            // dd($data['role']);
             return redirect()->route('manage_user');
     }
     public function edit_user(User $user)

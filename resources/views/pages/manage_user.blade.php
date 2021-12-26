@@ -12,14 +12,19 @@
 
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                         <label>{{ __('الاسم') }}</label>
-                        <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}">
+                        <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="الاسم">
                         @include('alerts.feedback', ['field' => 'name'])
                     </div>
 
                     <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                         <label>{{ __('البريد الالكتروني') }}</label>
-                        <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email address') }}" value="{{ old('email', auth()->user()->email) }}">
+                        <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="البريد الالكتروني">
                         @include('alerts.feedback', ['field' => 'email'])
+                    </div>
+                    <div class="form-group{{ $errors->has('role') ? ' has-danger' : '' }}">
+                        <label>{{ __('الدور') }}</label>
+                        <input type="text" name="role" class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" placeholder="الدور">
+                        @include('alerts.feedback', ['field' => 'role'])
                     </div>
                     <div class="form-group">
                         <label>{{ __('كلمة السر') }}</label>
@@ -64,6 +69,9 @@
                         البريد الالكتروني
                       </th>
                       <th>
+                        الدور
+                      </th>
+                      <th>
                         تاريخ الانشاء
                       </th>
                       <th class="text-center">
@@ -84,6 +92,9 @@
                       </td>
                       <td>
                         {{$user->email}}
+                      </td>
+                      <td>
+                        {{$user->role}}
                       </td>
                       <td>
                         {{$user->created_at}}
