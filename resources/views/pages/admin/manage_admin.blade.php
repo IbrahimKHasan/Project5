@@ -1,202 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Black Dashboard') }}</title>
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('black') }}/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('black') }}/img/favicon.png">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <!-- Icons -->
-    <link href="{{ asset('black') }}/css/nucleo-icons.css" rel="stylesheet" />
-    <!-- CSS -->
-    <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{ asset('black') }}/demo/demo.css" rel="stylesheet" />
-</head>
-
-<body class=" rtl menu-on-right ">
-    <div class="wrapper">
-        <div class="sidebar">
-            <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-    -->
-            <div class="sidebar-wrapper">
-                <div class="logo">
-                    <a href="javascript:void(0)" class="simple-text logo-mini">
-                        ط م
-                    </a>
-                    <a href="javascript:void(0)" class="simple-text logo-normal">
-                        توقيت الإبداعية
-                    </a>
-                </div>
-                <ul class="nav">
-                    <li>
-                        <a href="{{ route('home') }}">
-                            <i class="tim-icons icon-chart-pie-36"></i>
-                            <p>لوحة القيادة</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('pages.icons') }}">
-                            <i class="tim-icons icon-atom"></i>
-                            <p>الرموز</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('pages.maps') }}">
-                            <i class="tim-icons icon-pin"></i>
-                            <p>خرائط</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('pages.notifications') }}">
-                            <i class="tim-icons icon-bell-55"></i>
-                            <p>إخطارات</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('profile.edit') }}">
-                            <i class="tim-icons icon-single-02"></i>
-                            <p>ملف تعريفي للمستخدم</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('pages.tables') }}">
-                            <i class="tim-icons icon-puzzle-10"></i>
-                            <p>قائمة الجدول</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('pages.typography') }}">
-                            <i class="tim-icons icon-align-center"></i>
-                            <p>طباعة</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('pages.rtl') }}">
-                            <i class="tim-icons icon-world"></i>
-                            <p>دعم RTL</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('pages.upgrade') }}">
-                            <i class="tim-icons icon-spaceship"></i>
-                            <p>التطور للاحترافية</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="main-panel">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
-                <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <div class="navbar-toggle d-inline">
-                            <button type="button" class="navbar-toggler">
-                                <span class="navbar-toggler-bar bar1"></span>
-                                <span class="navbar-toggler-bar bar2"></span>
-                                <span class="navbar-toggler-bar bar3"></span>
-                            </button>
-                        </div>
-                        <a class="navbar-brand" href="javascript:void(0)">RTL</a>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navigation">
-                        <ul class="navbar-nav  mr-auto">
-                            <li class="search-bar input-group">
-                                <button class="btn btn-link" id="search-button" data-toggle="modal"
-                                    data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
-                                    <span class="d-lg-none d-md-block">Search</span>
-                                </button>
-                            </li>
-                            <li class="dropdown nav-item">
-                                <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <div class="notification d-none d-lg-block d-xl-block"></div>
-                                    <i class="tim-icons icon-sound-wave"></i>
-                                    <p class="d-lg-none">
-                                        Notifications
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                                    <li class="nav-link">
-                                        <a href="#" class="nav-item dropdown-item">Mike John responded to your email</a>
-                                    </li>
-                                    <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more
-                                            tasks</a>
-                                    </li>
-                                    <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael
-                                            is in town</a>
-                                    </li>
-                                    <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">Another
-                                            notification</a>
-                                    </li>
-                                    <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <div class="photo">
-                                        <img src="{{ asset('black') }}/img/anime3.png" alt="Profile Photo">
-                                    </div>
-                                    <b class="caret d-none d-lg-block d-xl-block"></b>
-                                    <p class="d-lg-none">
-                                        Log out
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu dropdown-navbar">
-                                    <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a>
-                                    </li>
-                                    <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
-                                    </li>
-                                    <li class="dropdown-divider"></li>
-                                    <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="separator d-lg-none"></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog"
-                aria-labelledby="searchModal" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <i class="tim-icons icon-simple-remove"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+@extends('layouts.arabic.master')
+@section('title','إدارة المشرفين')
+@section('admin-active','class=active')
+@section('content')
             <!-- End Navbar -->
             <div class="content">
+                @include('alerts.success')
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card ">
@@ -206,9 +14,9 @@
                             @if (Session::has('error'))
                                 <span class="invalid-feedback" role="alert">{{ Session::get('error') }}</span>
                             @endif
-                            @include('alerts.success')
-                            <button class="btn ml-4 btn-success" style="width: 150px"><a class="text-white"
-                                    href="{{ route('admin.manage_admins.create') }}">إضافة</a></button>
+
+                            <a class="text-white text-right"
+                                    href="{{ route('admin.manage_admins.create') }}"><button class="btn ml-4 btn-success" style="width: 150px">إضافة</button></a>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table tablesorter " id="">
@@ -222,6 +30,9 @@
                                                 </th>
                                                 <th class="text-center">
                                                     البريد الإلكترةني
+                                                </th>
+                                                <th class="text-center">
+                                                    تصنيف المشرف
                                                 </th>
                                                 <th class="text-center">
                                                     تاريخ انشاء الحساب
@@ -244,13 +55,21 @@
                                                         {{ $admin->admin_email }}
                                                     </td>
                                                     <td class="text-center">
+                                                        @if ($admin->admin_role == 0)
+                                                            مشرف
+                                                        @else
+                                                            مشرف خارق
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
                                                         {{ $admin->created_at }}
                                                     </td>
                                                     <td class="text-center">
                                                         <a
                                                             href="{{ route('admin.manage_admins.edit', $admin->admin_id) }}"><button
                                                                 type="button"
-                                                                class="btn btn-primary btn-sm">تعديل</button></a>
+                                                                class="btn btn-primary btn-sm">تعديل</button>
+                                                        </a>
                                                         <form style="display: inline-block"
                                                             action="{{ route('admin.manage_admins.destroy', $admin->admin_id) }}"
                                                             method="POST">
@@ -269,7 +88,8 @@
                     </div>
                 </div>
             </div>
-            <footer class="footer">
+@endsection
+            {{-- <footer class="footer">
                 <div class="container-fluid">
                     <ul class="nav">
                         <li class="nav-item">
@@ -481,7 +301,7 @@
     </script>
 </body>
 
-</html>
+</html> --}}
 
 {{-- <div class="col-md-12">
   <div class="card ">

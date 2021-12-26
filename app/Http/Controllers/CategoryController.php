@@ -41,7 +41,12 @@ class CategoryController extends Controller
         $request->validate([
             'category_name'=>'required',
             'category_image'=>'required'
-        ]);
+        ],
+        [
+            'category_name.required'=>'هذا الحقل مطلوب',
+            'category_image.required'=>'هذا الحقل مطلوب'
+        ]
+);
         $image = 'IMG'.'-'.time().'.'.$request->category_image->extension();
         $request->category_image->move(public_path('black/img'),$image);
         Category::create([
@@ -109,6 +114,6 @@ class CategoryController extends Controller
         Category::where('category_id',$category)->delete();
         // $categories = Category::all();
         // return view("pages.category.manage_category", compact("categories"));
-        return redirect('admin/manage_categories')->with('success','Admin deleted successfully');
+        return redirect('admin/manage_categories')->with('success','تم حذف الصنف بنجاح');
     }
 }

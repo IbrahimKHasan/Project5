@@ -1,12 +1,14 @@
 @extends('layouts.arabic.master')
-@section('title','الأصناف')
+@section('title','إدارة التعليقات')
+@section('comment-active','class=active')
 @section('content')
 <div class="content">
     <div class="row">
       <div class="col-md-12">
+        @include('alerts.success')
         <div class="card ">
           <div class="card-header text-right">
-            <h4 class="card-title">جدول الأصناف</h4>
+            <h4 class="card-title">جدول التعليقات</h4>
             <div class="table-responsive">
               <table class="table tablesorter " id="">
                 <thead class=" text-primary">

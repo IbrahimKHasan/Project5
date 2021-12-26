@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserLoginController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
-
+use Illuminate\Http\Client\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,28 +22,31 @@ use App\Http\Controllers\CommentController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+Route::post('/welcomebaba',function(){
 
+    return view('index');
+})->name('indexo');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
-
+Route::post('reddit/register',[UserLoginController::class,'register'])->name('register');;
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'App\Http\Controllers\PageController@maps']);
@@ -54,6 +59,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+    Route::get('manage_user',['App\Http\Controllers\UserController','manage_user'])->name('manage_user');
+    Route::get('create_user',['App\Http\Controllers\UserController','create_user'])->name('create_user');
+    Route::get('edit/{user}',['App\Http\Controllers\UserController','edit_user'])->name('edit_user');
+    Route::patch('/{id}',['App\Http\Controllers\UserController','update_user'])->name('update_user');
+    Route::delete('/{user}',['App\Http\Controllers\UserController','destroy'])->name('destroy');
+    Route::get('{user}/edit',['App\Http\Controllers\UserController','edit_user'])->name('edit');
+    Route::patch('/{user}',['App\Http\Controllers\UserController','update_user'])->name('update');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
@@ -65,6 +77,13 @@ Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () 
     Route::resource("manage_categories", CategoryController::class);
     Route::resource("manage_posts", PostController::class);
     Route::resource("manage_comments", CommentController::class);
+});
+Route::get("userLogin",[UserLoginController::class,'UserLogin']);
+Route::get("userLogin",[UserLoginController::class,'UserLogin']);
+
+
+Route::get('reddit', function(){
+	return view('index');
 });
 
 Route::get('/user_profile', function () {

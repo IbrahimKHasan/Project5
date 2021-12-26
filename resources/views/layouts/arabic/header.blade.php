@@ -27,68 +27,47 @@
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
     -->
-      <div class="sidebar-wrapper">
+      <div class="sidebar-wrapper" style="background-color: #ff3f18; border-radius:5px" >
         <div class="logo">
-          <a href="javascript:void(0)" class="simple-text logo-mini">
-            ط م
-          </a>
-          <a href="javascript:void(0)" class="simple-text logo-normal">
-            توقيت الإبداعية
-          </a>
+          <div class="simple-text logo-normal" style="font-size: x-large;font-weight:bolder">
+        لوحة التحكم
+          </div>
         </div>
         <ul class="nav">
-          <li>
-            <a href="{{ route('home') }}">
+          <li @yield('main-active')>
+            <a href="{{ route('home') }}" >
               <i class="tim-icons icon-chart-pie-36"></i>
-              <p>لوحة القيادة</p>
+              <p style="font-size:large">لوحة القيادة</p>
             </a>
           </li>
-          <li>
-            <a href="{{ route('pages.icons') }}">
-              <i class="tim-icons icon-atom"></i>
-              <p>الرموز</p>
+          <li @yield('admin-active')>
+            <a href="{{ route('admin.manage_admins.index') }}">
+              <i class="tim-icons icon-badge"></i>
+              <p style="font-size:large">إدارة المشرفين</p>
             </a>
           </li>
-          <li>
-            <a href="{{ route('pages.maps') }}">
-              <i class="tim-icons icon-pin"></i>
-              <p>خرائط</p>
-            </a>
-          </li>
-          <li>
-            <a href="{{ route('pages.notifications') }}">
-              <i class="tim-icons icon-bell-55"></i>
-              <p>إخطارات</p>
-            </a>
-          </li>
-          <li>
-            <a href="{{ route('profile.edit') }}">
+          <li @yield('user-active')>
+            <a href="{{ route('manage_user') }}">
               <i class="tim-icons icon-single-02"></i>
-              <p>ملف تعريفي للمستخدم</p>
+              <p style="font-size:large">إدارة االمستخدمين</p>
             </a>
           </li>
-          <li>
-            <a href="{{ route('pages.tables') }}">
-              <i class="tim-icons icon-puzzle-10"></i>
-              <p>قائمة الجدول</p>
+          <li @yield('cat-active')>
+            <a href="{{ route('admin.manage_categories.index') }}">
+              <i class="tim-icons icon-align-left-2"></i>
+              <p style="font-size:large">إدارة الأصناف</p>
             </a>
           </li>
-          <li>
-            <a href="{{ route('pages.typography') }}">
-              <i class="tim-icons icon-align-center"></i>
-              <p>طباعة</p>
+          <li @yield('post-active')>
+            <a href="{{ route('admin.manage_posts.index') }}">
+              <i class="tim-icons icon-single-copy-04"></i>
+              <p style="font-size:large">إدارة المنشورات</p>
             </a>
           </li>
-          <li>
-            <a href="{{ route('pages.rtl') }}">
-              <i class="tim-icons icon-world"></i>
-              <p>دعم RTL</p>
-            </a>
-          </li>
-          <li>
-            <a href="{{ route('pages.upgrade') }}">
-              <i class="tim-icons icon-spaceship"></i>
-              <p>التطور للاحترافية</p>
+          <li @yield('comment-active')>
+            <a href="{{ route('admin.manage_comments.index') }}">
+              <i class="tim-icons icon-chat-33"></i>
+              <p style="font-size:large">إدارة التعليقات</p>
             </a>
           </li>
         </ul>
@@ -106,7 +85,9 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">RTL</a>
+            {{-- <a class="navbar-brand" href="javascript:void(0)">RTL</a> --}}
+            <img src="{{ asset('black') }}/img/reddit.png" alt="" width="40px" height="40px" class="ml-2">
+            <p style="font-size:large;font-weight:bolder">منصة المناقشات - لوحة التحكم</p>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -153,19 +134,22 @@
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
-                    Log out
+                    تسجيل الخروج
                   </p>
                 </a>
-                <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link">
+                <ul class="dropdown-menu ">
+                  {{-- <li class="nav-link">
                     <a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a>
                   </li>
                   <li class="nav-link">
                     <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
-                  </li>
-                  <li class="dropdown-divider"></li>
+                  </li> --}}
+                  {{-- <li class="dropdown-divider"></li> --}}
                   <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
+                        @csrf
+                        <button class="nav-item dropdown-item" style="cursor:pointer" type="submit">تسجيل الخروج</button>
+                    </form>
                   </li>
                 </ul>
               </li>
