@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ShowPostController;
 use Illuminate\Http\Client\Request;
 
 /*
@@ -79,11 +80,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () 
     Route::resource("manage_comments", CommentController::class);
 });
 Route::get("userLogin",[UserLoginController::class,'UserLogin']);
-Route::get("userLogin",[UserLoginController::class,'UserLogin']);
+Route::get("reddit",[ShowPostController::class, 'show']);
 
-
-Route::get('reddit', function(){
-	return view('index');
-});
 
 

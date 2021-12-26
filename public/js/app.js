@@ -27592,7 +27592,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./resources/css/style.css":
 /*!*********************************!*\
   !*** ./resources/css/style.css ***!
@@ -27606,8 +27605,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-=======
->>>>>>> b4e58ff5521b4062399d240ae34fc3bf9f8f0ca2
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
