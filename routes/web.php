@@ -84,10 +84,5 @@ Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () 
 Route::get("userLogin",[UserLoginController::class,'UserLogin']);
 Route::get("reddit",[ShowPostController::class, 'show']);
 
-
-
-Route::get('reddit', function(){
-	return view('index');
-});
 // Route::get('contact', [ContactController::class]);
 Route::resource("/contact", ContactController::class);

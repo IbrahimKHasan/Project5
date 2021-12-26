@@ -1,4 +1,4 @@
-       @extends('layouts.header')
+       {{-- @extends('layouts.header')
        @section('content')
 
 
@@ -503,4 +503,4 @@
            </body>
 
            </html>
-       @endsection
+       @endsection --}}
