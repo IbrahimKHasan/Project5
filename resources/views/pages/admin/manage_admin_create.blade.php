@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html dir="rtl" lang="ar">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('black') }}/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('black') }}/img/favicon.png">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <!-- Icons -->
-    <link href="{{ asset('black') }}/css/nucleo-icons.css" rel="stylesheet" />
-    <!-- CSS -->
-    <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-    <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
-    <title>Document</title>
-</head>
-
+@extends('layouts.arabic.master')
+@section('title','إدارة المشرفين - إضافة')
+@section('admin-active','class=active')
+@section('content')
 <body>
-    <div class="container mt-5">
+    <div class="content">
+        @include('alerts.success')
         <div class="row">
-            <div class="col-md-8 m-auto ">
+            <div class="col-md-12 m-auto ">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="title" style="display:block; text-align: right;">تعديل المشرف</h5>
@@ -29,8 +14,6 @@
                     <form method="post" action="{{ route('admin.manage_admins.store') }}">
                         <div class="card-body">
                             @csrf
-                            @include('alerts.success')
-
                             <div class="form-group">
                                 <label style="display:block; text-align: right;">الإسم</label>
                                 <input type="text" name="admin_name"
@@ -72,5 +55,4 @@
         </div>
     </div>
 </body>
-
-</html>
+@endsection

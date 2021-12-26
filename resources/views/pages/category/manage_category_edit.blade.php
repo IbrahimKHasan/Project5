@@ -1,5 +1,6 @@
 @extends('layouts.arabic.master')
-@section('title','الأصناف - تعديل')
+@section('title','إدارة الأصناف - تعديل')
+@section('cat-active','class=active')
 @section('content')
 <div class="content text-right">
     <div class="row">

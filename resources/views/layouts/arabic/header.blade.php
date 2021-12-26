@@ -30,66 +30,45 @@
     -->
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="javascript:void(0)" class="simple-text logo-mini">
-                        ط م
-                    </a>
-                    <a href="javascript:void(0)" class="simple-text logo-normal">
-                        توقيت الإبداعية
-                    </a>
+                    <div class="simple-text logo-normal" style="font-size: x-large;font-weight:bolder">
+                        لوحة التحكم
+                    </div>
                 </div>
                 <ul class="nav">
-                    <li>
+                    <li @yield('main-active')>
                         <a href="{{ route('home') }}">
                             <i class="tim-icons icon-chart-pie-36"></i>
-                            <p>لوحة القيادة</p>
+                            <p style="font-size:large">لوحة القيادة</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('pages.icons') }}">
-                            <i class="tim-icons icon-atom"></i>
-                            <p>الرموز</p>
+                    <li @yield('admin-active')>
+                        <a href="{{ route('admin.manage_admins.index') }}">
+                            <i class="tim-icons icon-badge"></i>
+                            <p style="font-size:large">إدارة المشرفين</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('pages.maps') }}">
-                            <i class="tim-icons icon-pin"></i>
-                            <p>خرائط</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('pages.notifications') }}">
-                            <i class="tim-icons icon-bell-55"></i>
-                            <p>إخطارات</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('profile.edit') }}">
+                    <li @yield('user-active')>
+                        <a href="{{ route('manage_user') }}">
                             <i class="tim-icons icon-single-02"></i>
-                            <p>ملف تعريفي للمستخدم</p>
+                            <p style="font-size:large">إدارة االمستخدمين</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('pages.tables') }}">
-                            <i class="tim-icons icon-puzzle-10"></i>
-                            <p>قائمة الجدول</p>
+                    <li @yield('cat-active')>
+                        <a href="{{ route('admin.manage_categories.index') }}">
+                            <i class="tim-icons icon-align-left-2"></i>
+                            <p style="font-size:large">إدارة الأصناف</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('pages.typography') }}">
-                            <i class="tim-icons icon-align-center"></i>
-                            <p>طباعة</p>
+                    <li @yield('post-active')>
+                        <a href="{{ route('admin.manage_posts.index') }}">
+                            <i class="tim-icons icon-single-copy-04"></i>
+                            <p style="font-size:large">إدارة المنشورات</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('pages.rtl') }}">
-                            <i class="tim-icons icon-world"></i>
-                            <p>دعم RTL</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('pages.upgrade') }}">
-                            <i class="tim-icons icon-spaceship"></i>
-                            <p>التطور للاحترافية</p>
+                    <li @yield('comment-active')>
+                        <a href="{{ route('admin.manage_comments.index') }}">
+                            <i class="tim-icons icon-chat-33"></i>
+                            <p style="font-size:large">إدارة التعليقات</p>
                         </a>
                     </li>
                 </ul>
@@ -107,7 +86,10 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:void(0)">RTL</a>
+                        {{-- <a class="navbar-brand" href="javascript:void(0)">RTL</a> --}}
+                        <img src="{{ asset('black') }}/img/reddit.png" alt="" width="40px" height="40px"
+                            class="ml-2">
+                        <p style="font-size:large;font-weight:bolder">منصة المناقشات - لوحة التحكم</p>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -159,19 +141,23 @@
                                     </div>
                                     <b class="caret d-none d-lg-block d-xl-block"></b>
                                     <p class="d-lg-none">
-                                        Log out
+                                        تسجيل الخروج
                                     </p>
                                 </a>
-                                <ul class="dropdown-menu dropdown-navbar">
+                                <ul class="dropdown-menu ">
+                                    {{-- <li class="nav-link">
+                    <a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a>
+                  </li>
+                  <li class="nav-link">
+                    <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
+                  </li> --}}
+                                    {{-- <li class="dropdown-divider"></li> --}}
                                     <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a>
-                                    </li>
-                                    <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
-                                    </li>
-                                    <li class="dropdown-divider"></li>
-                                    <li class="nav-link">
-                                        <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
+                                            @csrf
+                                            <button class="nav-item dropdown-item" style="cursor:pointer"
+                                                type="submit">تسجيل الخروج</button>
+                                        </form>
                                     </li>
                                 </ul>
                             </li>
@@ -191,6 +177,113 @@
                             </button>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- End Navbar -->
+                    <div class="main-panel">
+                        <!-- Navbar -->
+                        <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+                            <div class="container-fluid">
+                                <div class="navbar-wrapper">
+                                    <div class="navbar-toggle d-inline">
+                                        <button type="button" class="navbar-toggler">
+                                            <span class="navbar-toggler-bar bar1"></span>
+                                            <span class="navbar-toggler-bar bar2"></span>
+                                            <span class="navbar-toggler-bar bar3"></span>
+                                        </button>
+                                    </div>
+                                    <a class="navbar-brand" href="javascript:void(0)">RTL</a>
+                                </div>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navigation">
+                                    <ul class="navbar-nav  mr-auto">
+                                        <li class="search-bar input-group">
+                                            <button class="btn btn-link" id="search-button" data-toggle="modal"
+                                                data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
+                                                <span class="d-lg-none d-md-block">Search</span>
+                                            </button>
+                                        </li>
+                                        <li class="dropdown nav-item">
+                                            <a href="javascript:void(0)" class="dropdown-toggle nav-link"
+                                                data-toggle="dropdown">
+                                                <div class="notification d-none d-lg-block d-xl-block"></div>
+                                                <i class="tim-icons icon-sound-wave"></i>
+                                                <p class="d-lg-none">
+                                                    Notifications
+                                                </p>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
+                                                <li class="nav-link">
+                                                    <a href="#" class="nav-item dropdown-item">Mike John responded to
+                                                        your email</a>
+                                                </li>
+                                                <li class="nav-link">
+                                                    <a href="javascript:void(0)" class="nav-item dropdown-item">You have
+                                                        5 more
+                                                        tasks</a>
+                                                </li>
+                                                <li class="nav-link">
+                                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Your
+                                                        friend Michael
+                                                        is in town</a>
+                                                </li>
+                                                <li class="nav-link">
+                                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another
+                                                        notification</a>
+                                                </li>
+                                                <li class="nav-link">
+                                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another
+                                                        one</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown nav-item">
+                                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                                <div class="photo">
+                                                    <img src="{{ asset('black') }}/img/anime3.png"
+                                                        alt="Profile Photo">
+                                                </div>
+                                                <b class="caret d-none d-lg-block d-xl-block"></b>
+                                                <p class="d-lg-none">
+                                                    Log out
+                                                </p>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-navbar">
+                                                <li class="nav-link">
+                                                    <a href="javascript:void(0)"
+                                                        class="nav-item dropdown-item">Profile</a>
+                                                </li>
+                                                <li class="nav-link">
+                                                    <a href="javascript:void(0)"
+                                                        class="nav-item dropdown-item">Settings</a>
+                                                </li>
+                                                <li class="dropdown-divider"></li>
+                                                <li class="nav-link">
+                                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Log
+                                                        out</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="separator d-lg-none"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                        <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog"
+                            aria-labelledby="searchModal" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <input type="text" class="form-control" id="inlineFormInputGroup"
+                                            placeholder="SEARCH">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <i class="tim-icons icon-simple-remove"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Navbar -->

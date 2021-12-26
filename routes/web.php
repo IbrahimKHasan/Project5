@@ -20,25 +20,25 @@ use App\Http\Controllers\CommentController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
@@ -54,6 +54,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+    Route::get('manage_user',['App\Http\Controllers\UserController','manage_user'])->name('manage_user');
+    Route::get('create_user',['App\Http\Controllers\UserController','create_user'])->name('create_user');
+    Route::get('edit/{user}',['App\Http\Controllers\UserController','edit_user'])->name('edit_user');
+    Route::patch('/{id}',['App\Http\Controllers\UserController','update_user'])->name('update_user');
+    Route::delete('/{user}',['App\Http\Controllers\UserController','destroy'])->name('destroy');
+    Route::get('{user}/edit',['App\Http\Controllers\UserController','edit_user'])->name('edit');
+    Route::patch('/{user}',['App\Http\Controllers\UserController','update_user'])->name('update');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);

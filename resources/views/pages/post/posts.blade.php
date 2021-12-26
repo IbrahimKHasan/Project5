@@ -1,5 +1,6 @@
 @extends('layouts.arabic.master')
-@section('title','المنشورات')
+@section('title','إدارة المنشورات')
+@section('post-active','class=active')
 @section('content')
 <div class="content">
     <div class="row">
