@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserLoginController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
-
+use Illuminate\Http\Client\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,10 @@ use App\Http\Controllers\CommentController;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::post('/welcomebaba',function(){
 
+    return view('index');
+})->name('indexo');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -41,7 +46,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
-
+Route::post('reddit/register',[UserLoginController::class,'register'])->name('register');;
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'App\Http\Controllers\PageController@maps']);
@@ -73,5 +78,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () 
     Route::resource("manage_posts", PostController::class);
     Route::resource("manage_comments", CommentController::class);
 });
+Route::get("userLogin",[UserLoginController::class,'UserLogin']);
+Route::get("userLogin",[UserLoginController::class,'UserLogin']);
 
 
