@@ -82,3 +82,8 @@ Route::get("userLogin",[UserLoginController::class,'UserLogin']);
 Route::get("userLogin",[UserLoginController::class,'UserLogin']);
 
 
+Route::get('reddit', function(){
+	return view('index');
+});
+
+
