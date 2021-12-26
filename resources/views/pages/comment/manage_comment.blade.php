@@ -23,6 +23,9 @@
                       اسم المعلق
                     </th>
                     <th class="text-center">
+                        عنوان المنشور
+                      </th>
+                    <th class="text-center">
                      تاريخ الانشاء
                     </th>
                     <th class="text-center">
@@ -41,6 +44,9 @@
                       </td>
                       <td class="text-center">
                         {{$comment->name}}
+                      </td>
+                      <td class="text-center">
+                        {{$comment->post_title}}
                       </td>
                       <td class="text-center">
                         {{$comment->created_at}}

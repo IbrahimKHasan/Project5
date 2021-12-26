@@ -26,13 +26,16 @@ use Illuminate\Http\Client\Request;
 Route::get('/', function () {
     return view('auth.login');
 });
+// Route::get('/publicsite', function () {
+//     return view('public_site.single_post');
+// });
 Route::post('/welcomebaba',function(){
 
     return view('index');
 })->name('indexo');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Auth::routes();
 
@@ -62,7 +65,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
     Route::get('manage_user',['App\Http\Controllers\UserController','manage_user'])->name('manage_user');
-    Route::get('create_user',['App\Http\Controllers\UserController','create_user'])->name('create_user');
+    Route::post('create_user',['App\Http\Controllers\UserController','create_user'])->name('create_user');
     Route::get('edit/{user}',['App\Http\Controllers\UserController','edit_user'])->name('edit_user');
     Route::patch('/{id}',['App\Http\Controllers\UserController','update_user'])->name('update_user');
     Route::delete('/{user}',['App\Http\Controllers\UserController','destroy'])->name('destroy');
@@ -72,6 +75,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
+
 
 ################## For Admin #############################
 Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () {
