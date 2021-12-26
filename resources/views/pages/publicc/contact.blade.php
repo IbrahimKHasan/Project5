@@ -54,7 +54,7 @@
                             <input
                               type="text"
                               class="form-control"
-                              name="name_contact"
+                              name="contact_name"
                               id="name"
                               placeholder="الاسم"
                             />
@@ -70,7 +70,7 @@
                             <input
                               type="email"
                               class="form-control"
-                              name="email_contact"
+                              name="contact_email"
                               id="email"
                               placeholder="الايميل"
                             />
@@ -84,7 +84,7 @@
                             <input
                               type="text"
                               class="form-control"
-                              name="subject_contact"
+                              name="contact_subject"
                               id="subject"
                               placeholder="الموضوع"
                             />
@@ -96,7 +96,7 @@
                               <h5>محتوى الرسالة</h5>
                             </label>
                             <textarea
-                              name="comment_contact"
+                              name="contact_comment"
                               class="form-control"
                               id="message"
                               cols="30"

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
+use Illuminate\Http\Request;
+use Illuminate\Http\Client\Request as ClientRequest;
 use PhpParser\Node\Expr\AssignOp\Concat;
 
 class ContactController extends Controller
@@ -37,7 +39,7 @@ class ContactController extends Controller
      * @param  \App\Http\Requests\StoreContactRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreContactRequest $request)
+    public function store(Request $request)
     {
         // $request->validate([
         //     'name_contact'=>'required',
@@ -52,12 +54,12 @@ class ContactController extends Controller
         // ]);
 
         Contact::create([
-        'name_contact'=>$request->name_contact,
-        'email_contact'=>$request->email_contact,
-        'subject_contact'=>$request->subject_contact,
-        'comment_contact'=>$request->comment_contact
+        'contact_name'=>$request->contact_name,
+        'contact_email'=>$request->contact_email,
+        'contact_subject'=>$request->contact_subject,
+        'contact_comment'=>$request->contact_comment
         ]);
-        return redirect('publicc/contact')->with('success', 'تمت الإضافة بنجاح');
+        return redirect('/contact')->with('success', 'تمت الإضافة بنجاح');
     }
 
     /**
