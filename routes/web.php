@@ -68,3 +68,8 @@ Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () 
 });
 
 
+Route::get('reddit', function(){
+	return view('index');
+});
+
+
