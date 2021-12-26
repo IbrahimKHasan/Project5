@@ -45,7 +45,7 @@ class UserLoginController extends Controller
        User::create($request->all());
 
 
-        return view('welcome');
+        return view('/reddit');
     }
 
     // public function login(LoginRequest $request)
