@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ShowPostController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Http\Client\Request;
 
 /*
@@ -47,7 +48,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
-Route::post('reddit/register',[UserLoginController::class,'register'])->name('register');;
+// Route::post('reddit/register',[UserLoginController::class,'register'])->name('register');
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'App\Http\Controllers\PageController@maps']);
@@ -78,9 +79,15 @@ Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () 
     Route::resource("manage_categories", CategoryController::class);
     Route::resource("manage_posts", PostController::class);
     Route::resource("manage_comments", CommentController::class);
+
 });
 Route::get("userLogin",[UserLoginController::class,'UserLogin']);
 Route::get("reddit",[ShowPostController::class, 'show']);
 
 
 
+Route::get('reddit', function(){
+	return view('index');
+});
+// Route::get('contact', [ContactController::class]);
+Route::resource("/contact", ContactController::class);

@@ -31,10 +31,18 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create_user(Request $request){
+    public function create_user(Request $data){
 
-            User::create($request->all());
+            // $request['password']=Hash::make('$request->password');
 
+            // User::create($request->all());
+            User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'role'=>$data['role'],
+                'password' => Hash::make($data['password']),
+            ]);
+            // dd($data['role']);
             return redirect()->route('manage_user');
     }
     public function edit_user(User $user)

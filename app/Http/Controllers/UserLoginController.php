@@ -48,7 +48,7 @@ class UserLoginController extends Controller
         return view('/reddit');
     }
 
-    // public function login(LoginRequest $request)
+    // public function login(Request $request)
     // {
     //     $credentials = $request->getCredentials();
 
