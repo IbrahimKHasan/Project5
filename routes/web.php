@@ -67,4 +67,8 @@ Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () 
     Route::resource("manage_comments", CommentController::class);
 });
 
+Route::get('/user_profile', function () {
+    return view("users/user_pofile");
+});
+
 
