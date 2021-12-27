@@ -1,9 +1,9 @@
 <footer class="hf hf__footer">
-    <div class="hf-wrapper hf__columns">
+    {{-- <div class="hf-wrapper hf__columns">
         <div>
             <input id="hf-downloads-switcher" class="hf__dd-switcher hf-hide" type="checkbox">
             <h2 class="hf__heading">
-                <label class="hf__label" for="hf-downloads-switcher">Download Opera</label>
+                <label class="hf__label" for="hf-downloads-switcher">Discussion</label>
             </h2>
             <div class="hf__dd-content">
                 <h3 class="hf__sub-heading"><a href="https://www.opera.com/computer">Computer browsers</a></h3>
@@ -92,7 +92,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="hf-wrapper hf__bottom">
 
         <div class="hf__social-box">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Support\Facades\DB;
@@ -57,7 +58,8 @@ class PostController extends Controller
         //
     }
     public function add_post(){
-        return view('public_site.add_post');
+        $cat = Category::all();
+        return view('public_site.add_post',compact('cat'));
     }
 
     /**

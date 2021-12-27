@@ -28,7 +28,7 @@
 
 
         <div class="container" id="content">
-            <noscript>
+            {{-- <noscript>
                 <div class="alert alert-danger">
                     <p>
                         Your browser does not seem to support JavaScript. As a result, your viewing experience will be
@@ -39,15 +39,8 @@
                         NoScript).
                     </p>
                 </div>
-            </noscript>
-
-
-
-            <div data-widget-area="header">
-
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
+            </noscript> --}}
+                <div class="col-lg-12" style="margin-left: 100px">
 
                     <h1 class="section-title">Categories</h1>
 
@@ -72,6 +65,10 @@
                                                 <a href="index/{{ $category->category_id }}" itemprop="url">
 
                                                     {{ $category->category_name }}
+                                                    <?php
+                                                     $counter = DB::table('posts')
+                                                     ->where('category_id', $category->category_id)
+                                                     ->count(); ?>
                                                 </a>
 
                                             </h2>
@@ -83,14 +80,16 @@
 
                                         </div>
 
-                                        <div class="col-md-2 hidden-sm hidden-xs stats">
+                                        {{-- <div class="col-md-2 hidden-sm hidden-xs stats">
                                             <span class="unread human-readable-number" title="31073">31073</span><br />
                                             <small>Topics</small>
-                                        </div>
+                                        </div> --}}
 
-                                        <div class="col-md-2 hidden-sm hidden-xs stats">
+                                        <div class="col-md-4 hidden-sm hidden-xs stats">
                                             <span class="unread human-readable-number"
-                                                title="152589">152589</span><br />
+                                                title="152589">
+                                            {{$counter}}
+                                            </span><br />
                                             <small>Posts</small>
                                         </div>
 
@@ -105,7 +104,7 @@
 
                                     </div>
 
-                                    <span class="col-md-12 col-xs-12 box-footer"><a
+                                    {{-- <span class="col-md-12 col-xs-12 box-footer"><a
                                             href="category/11/opera-for-windows.html"><span class="fa-stack fa-lg"><i
                                                     style="color: #f2f2f2;" class="fa fa-circle fa-stack-2x"></i><i
                                                     style="color:#00abef;"
@@ -128,7 +127,7 @@
                                                     class="fa fa-circle fa-stack-2x"></i><i style="color:#009687;"
                                                     class="fa fa-stack-1x fa-thumbs-up"></i></span><small>Suggestions
                                                 and
-                                                feature requests</small></a> </span>
+                                                feature requests</small></a> </span> --}}
 
                                 </div>
 
@@ -174,7 +173,7 @@
                 <div data-widget-area="sidebar" class="col-lg-3 col-sm-12 hidden">
 
                 </div>
-            </div>
+
             <div data-widget-area="footer">
 
             </div>

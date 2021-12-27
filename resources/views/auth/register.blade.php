@@ -54,7 +54,7 @@
                         </div>
                         <div class="text-right form-check text-left">
                             <label class="form-check-label">
-                                <input class="text-right form-check-input" type="checkbox">
+                                <input class="text-right form-check-input" type="checkbox" required>
                                 <span class="form-check-sign"></span>
                                 {{ __('أوافق على') }}
                                 <a href="#">{{ __('الشروط والأحكام') }}</a>.

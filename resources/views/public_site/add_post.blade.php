@@ -15,20 +15,21 @@
 
             <div class="form-group">
                 <label for="location">Categories</label>
-                <input class="form-control" type="text" id="location" name="location" placeholder="Select Categories" value="">
+                <select name="category_id" id="">
+                    @foreach ($cat as $item)
+                    <option value="{{$item->category_id}}">{{$item->category_name}}</option>
+                    @endforeach
+                </select>
             </div>
-
+            <div class="form-group">
+                <label for="birthday">Discussion tag</label>
+                <input type="text" class=" form-control" name="post_tag"></textarea>
+            </div>
 
             <div class="form-group">
                 <label for="birthday">Discussion body</label>
-                <textarea class="ckeditor form-control" name="wysiwyg-editor"></textarea>
+                <textarea class="ckeditor form-control" name="post_body"></textarea>
             </div>
-
-
-            <div id="editOnOperaAuth" class="control-group">
-                To change your email or password please go to <a href="https://auth.opera.com/account/edit-profile" target="_blank">your Opera account</a>
-            </div>
-
             <input type="submit" name="submit" value="save Post">
 
         </form>

@@ -8,7 +8,7 @@
     <title>@yield('title')</title>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('black') }}/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('black') }}/img/reddit.png">
+    <link rel="icon" type="image/png" href="{{ asset('black') }}/img/logo.png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -27,7 +27,7 @@
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
     -->
-      <div class="sidebar-wrapper" style="background-color: #ff3f18; border-radius:5px" >
+      <div class="sidebar-wrapper" style="background-color:#0597d9; border-radius:5px" >
         <div class="logo">
           <div class="simple-text logo-normal" style="font-size: x-large;font-weight:bolder">
         لوحة التحكم
@@ -40,12 +40,12 @@
               <p style="font-size:large">لوحة القيادة</p>
             </a>
           </li>
-          <li @yield('admin-active')>
+          {{-- <li @yield('admin-active')>
             <a href="{{ route('admin.manage_admins.index') }}">
               <i class="tim-icons icon-badge"></i>
               <p style="font-size:large">إدارة المشرفين</p>
             </a>
-          </li>
+          </li> --}}
           <li @yield('user-active')>
             <a href="{{ route('manage_user') }}">
               <i class="tim-icons icon-single-02"></i>
@@ -86,7 +86,7 @@
               </button>
             </div>
             {{-- <a class="navbar-brand" href="javascript:void(0)">RTL</a> --}}
-            <img src="{{ asset('black') }}/img/reddit.png" alt="" width="40px" height="40px" class="ml-2">
+            <img src="{{ asset('black') }}/img/logo.png" alt="" width="40px" height="40px" class="ml-2">
             <p style="font-size:large;font-weight:bolder">منصة المناقشات - لوحة التحكم</p>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">

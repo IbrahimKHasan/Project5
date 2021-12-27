@@ -22,8 +22,12 @@
                     </div>
                     <div class="form-group{{ $errors->has('role') ? ' has-danger' : '' }}">
                         <label>{{ __('الدور') }}</label>
-                        <input type="text" name="role" class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" placeholder="الدور">
+
                         @include('alerts.feedback', ['field' => 'role'])
+                        <select class="form-control" name="role" id="">
+                                <option class="form-control" value="admin">admin</option>
+                                <option class="form-control" value="user">user</option>
+                        </select>
                     </div>
                     <div>
                         <label>الصورة

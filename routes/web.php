@@ -96,4 +96,5 @@ Route::resource("/contact", ContactController::class);
 Route::get("/main", [PublicPagesController::class,'index'])->name('publicIndex');
 Route::get("/index/{category_id}", [PublicPagesController::class,'post'])->name('publicposts');
 Route::get("add/addPost", [PostController::class,'add_post'])->name('add_post');
-Route::resource('index/add/addPost',PostController::class);
+// Route::resource('index/add/addPost',PostController::class)->middleware('auth');
+Route::post('index/add/addPost',[PublicPagesController::class,'store'])->name('addPost.store');

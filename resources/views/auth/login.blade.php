@@ -6,7 +6,7 @@
             @csrf
             <div class="card card-login card-white" >
 
-                    <h1 style="color:#cf51de;font-weight: bolder" class="text-center mt-3">تسجيل الدخول</h1>
+                    <h1 style="color:#0597d9;font-weight: bolder" class="text-center mt-3">تسجيل الدخول</h1>
                 <div class="card-body">
                     <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                         <div class="input-group-prepend">
@@ -28,9 +28,9 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">تسجيل الدخول</button>
-                    <div class="text-center mt-3"style="color:#cf51de;font-weight: bolder" >
-                            <a href="{{ route('password.request') }}" class="link footer-link">نسيت كلمة السر؟</a>
+                    <button type="submit" href="" style="background-color:#0597d9" class="btn  btn-lg btn-block mb-3">تسجيل الدخول</button>
+                    <div class="text-center mt-3"style="color:#0597d9;font-weight: bolder" >
+                            <a style="color:#0597d9" href="{{ route('password.request') }}" class="link footer-link">نسيت كلمة السر؟</a>
                     </div>
                 </div>
             </div>

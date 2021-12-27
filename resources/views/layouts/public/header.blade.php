@@ -24,15 +24,15 @@
     <meta property="og:url" content="index.html" />
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/client0606.css?v=91djilae11a') }}" />
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/uploads/system/favicon0606.ico?v=91djilae11a') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('black') }}/img/logo.png" />
     <link rel="search" type="application/opensearchdescription+xml" title="Opera forums" href="osd.xml" />
     <link rel="apple-touch-icon" href="{{ asset('assets/uploads/system/touchicon-orig.png') }}" />
-    <link rel="icon" sizes="36x36" href="{{ asset('assets/uploads/system/touchicon-36.png') }}" />
+    {{-- <link rel="icon" sizes="36x36" href="{{ asset('assets/uploads/system/touchicon-36.png') }}" />
     <link rel="icon" sizes="48x48" href="{{ asset('assets/uploads/system/touchicon-48.png') }}" />
     <link rel="icon" sizes="72x72" href="{{ asset('assets/uploads/system/touchicon-72.png') }}" />
     <link rel="icon" sizes="96x96" href="{{ asset('assets/uploads/system/touchicon-96.png') }}" />
     <link rel="icon" sizes="144x144" href="{{ asset('assets/uploads/system/touchicon-144.png') }}" />
-    <link rel="icon" sizes="192x192" href="{{ asset('assets/uploads/system/touchicon-192.png') }}" />
+    <link rel="icon" sizes="192x192" href="{{ asset('assets/uploads/system/touchicon-192.png') }}" /> --}}
     <link rel="prefetch" href="{{ asset('assets/src/modules/composer0606.js?v=91djilae11a') }}" />
     <link rel="prefetch" href="{{ asset('assets/src/modules/composer/uploads0606.js?v=91djilae11a') }}" />
     <link rel="prefetch" href="{{ asset('assets/src/modules/composer/drafts0606.js?v=91djilae11a') }}" />
@@ -82,9 +82,9 @@
 
     </nav>
 
-    <main id="panel" class="slideout-panel">
+    <main id="panel" class="slideout-panel" style="margin: auto">
         <nav class="navbar navbar-default navbar-fixed-top header" id="header-menu" component="navbar">
-            <div class="container">
+            <div class="container" style="width: 80%;">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle pull-left" id="mobile-menu">
                         <span component="notifications/icon" class="notification-icon fa fa-fw unread-count"
@@ -96,59 +96,80 @@
                             data-content="0"></span>
                         <i class="fa fa-lg fa-comment-o"></i>
                     </button>
-
-                    <a class="forum-logo-wrapper" href="index.html">
-                        <img alt="" class="forum-logo" src="plugins/nodebb-theme-opera/static/logo%402x.png" />
-                    </a>
-
+                    <div style="display:flex">
+                        <a href="/main"><img style='margin:10px' alt=""  src="{{ asset('black') }}/img/logo.png" width="60px" height="60px" /></a>
+                        <span><h1>DP</h1></span>
+                    </div>
                     <div component="navbar/title" class="visible-xs hidden">
                         <span></span>
                     </div>
                 </div>
 
-                <div id="nav-dropdown" class="hidden-xs">
+                <div id="nav-dropdown" >
                     <?php if (!session()->has('name')) {?>
-                    <ul id="logged-out-menu" class="nav navbar-nav navbar-right">
+                    <ul id="logged-out-menu" class="nav navbar-nav navbar-right" style="margin:10px">
                         <li class="login">
                             <a class="operaLoginButton"
-                                href="/"
+                                href="{{route('login')}}"
                                 data-base-href="/auth/opera" rel="nofollow" target="_top">
-                                <span class="btn btn-primary">Login</span>
+                                <span class="btn" style="background-color: #46D2EB;color:white">Login</span>
                             </a>
                         </li>
                     </ul>
                 <?php }else { ?>
-                    <ul id="logged-out-menu" class="nav navbar-nav navbar-right" >
+                    <div style="margin:10px">
+                    <ul id="logged-out-menu" class="nav navbar-nav navbar-right">
                         <li class="login">
                             <a class="operaLoginButton"
                                 href=""
                                 data-base-href="/auth/opera" rel="nofollow" target="_top">
-                                <span class="btn btn-primary"><?php echo session('name') ?></span>
+                                <img src='{{asset("black/img/".session('image'))}}' width="40px" height="40px" alt="" style="margin-bottom: 5px">
                             </a>
                         </li>
                         <li class="login">
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
-                                @csrf
-                                <a class="operaLoginButton">
-                                <button class="nav-item dropdown-item" type="submit">Logout</button>
-                            </form>
-                        </a>
+                            <a class="operaLoginButton" rel="nofollow" target="_top">
+                                <span class="btn" style="background-color: #46D2EB;color:white"><?php echo session('name') ?></span>
+                            </a>
                         </li>
                         <li class="login">
-                            <img src='{{asset("black/img/".session('image'))}}' width="40px" height="40px" alt="">
+                            <a class="operaLoginButton" rel="nofollow" target="_top">
+                                <span class="btn" style="background-color: #46D2EB;color:white;width:80px">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
+                                        @csrf
+                                        <button style="background-color:#46D2EB;border:none;color:white" type="submit">Logout</button>
+                                    </form>
+                                </span>
+                            </a>
                         </li>
+
+                        {{-- <li class="login">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
+                                @csrf
+                                <a class="operaLoginButton"
+                                href=""
+                                data-base-href="/auth/opera" rel="nofollow" target="_top">
+                                <button class="nav-item dropdown-item" type="submit">Logout</button>
+                            </a>
+                            </form>
+                        </li> --}}
                     </ul>
+                </div>
                     <?php } ?>
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right"  >
+                        <li class="login">
+                            <a href="add/addPost" class="operaLoginButton" rel="nofollow" target="_top">
+                                <span class="btn" style="background-color: #46D2EB;color:white">Add Post</span>
+                            </a>
+                        </li>
                         <li>
                             <form id="search-form" class="navbar-form clearfix hidden-xs"
-                                action="{{ url('/search') }}" role="search" method="GET">
+                                action="{{ url('/search') }}" role="search" method="GET" style="margin-bottom:15px;margin-right:100px;">
                                 <button id="search-button" type="button" class="btn btn-link"><i
                                         class="fa fa-search fa-fw" title="Search"></i></button>
-                                <div class="" id="search-fields">
-                                    <div class="form-group">
+                                <div class="" id="search-fields" >
+                                    <div class="form-group" >
                                         <input autocomplete="off" type="search" class="form-control"
-                                            placeholder="Search" name="query" value="">
+                                            placeholder="Search" name="query" value="" style="width:400px">
                                         <a href="#"><i class="fa fa-gears fa-fw advanced-search-link"></i></a>
                                     </div>
                                     <button type="submit" class="btn btn-default hide">Search</button>
@@ -171,7 +192,7 @@
                         </li>
                     </ul>
 
-
+{{--
                     <ul class="nav navbar-nav navbar-right hidden-xs">
                         <li>
                             <a href="#" id="reconnect" class="hide"
@@ -240,11 +261,11 @@
 
                             </a>
 
-                        </li>
+                        </li> --}}
 
 
 
-                        <li class="">
+                        {{-- <li class="">
                             <a title="Groups" class="navigation-link " href="groups.html">
 
                                 <i class="fa fa-fw fa-group" data-content=""></i>
@@ -285,10 +306,10 @@
 
                             </a>
 
-                        </li>
+                        </li> --}}
 
-
-                    </ul>
+{{--
+                    </ul> --}}
 
 
                 </div>
