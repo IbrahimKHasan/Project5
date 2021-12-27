@@ -10,6 +10,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ShowPostController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PublicPagesController;
 use Illuminate\Http\Client\Request;
 
 /*
@@ -23,14 +24,14 @@ use Illuminate\Http\Client\Request;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
+
+Route::get('/login', function () {
     return view('auth.login');
 });
-// Route::get('/publicsite', function () {
-//     return view('public_site.single_post');
-// });
 Route::post('/welcomebaba',function(){
-
     return view('index');
 })->name('indexo');
 Auth::routes();
@@ -86,7 +87,9 @@ Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () 
 
 });
 Route::get("userLogin",[UserLoginController::class,'UserLogin']);
-Route::get("reddit",[ShowPostController::class, 'show']);
+Route::get("index/post/{post}",[ShowPostController::class, 'show']);
 
 // Route::get('contact', [ContactController::class]);
 Route::resource("/contact", ContactController::class);
+Route::get("/", [PublicPagesController::class,'index'])->name('publicIndex');
+Route::get("/index/{category_id}", [PublicPagesController::class,'post'])->name('publicposts');

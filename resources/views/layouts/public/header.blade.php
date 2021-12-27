@@ -23,29 +23,28 @@
     <meta property="og:title" content="Opera forums" />
     <meta property="og:url" content="index.html" />
 
-    <link rel="stylesheet" type="text/css" href="assets/client0606.css?v=91djilae11a" />
-    <link rel="icon" type="image/x-icon" href="assets/uploads/system/favicon0606.ico?v=91djilae11a" />
-    <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/client0606.css?v=91djilae11a')}}" />
+    <link rel="icon" type="image/x-icon" href="{{asset('assets/uploads/system/favicon0606.ico?v=91djilae11a')}}" />
     <link rel="search" type="application/opensearchdescription+xml" title="Opera forums" href="osd.xml" />
-    <link rel="apple-touch-icon" href="assets/uploads/system/touchicon-orig.png" />
-    <link rel="icon" sizes="36x36" href="assets/uploads/system/touchicon-36.png" />
-    <link rel="icon" sizes="48x48" href="assets/uploads/system/touchicon-48.png" />
-    <link rel="icon" sizes="72x72" href="assets/uploads/system/touchicon-72.png" />
-    <link rel="icon" sizes="96x96" href="assets/uploads/system/touchicon-96.png" />
-    <link rel="icon" sizes="144x144" href="assets/uploads/system/touchicon-144.png" />
-    <link rel="icon" sizes="192x192" href="assets/uploads/system/touchicon-192.png" />
-    <link rel="prefetch" href="assets/src/modules/composer0606.js?v=91djilae11a" />
-    <link rel="prefetch" href="assets/src/modules/composer/uploads0606.js?v=91djilae11a" />
-    <link rel="prefetch" href="assets/src/modules/composer/drafts0606.js?v=91djilae11a" />
-    <link rel="prefetch" href="assets/src/modules/composer/tags0606.js?v=91djilae11a" />
-    <link rel="prefetch" href="assets/src/modules/composer/categoryList0606.js?v=91djilae11a" />
-    <link rel="prefetch" href="assets/src/modules/composer/resize0606.js?v=91djilae11a" />
-    <link rel="prefetch" href="assets/src/modules/composer/autocomplete0606.js?v=91djilae11a" />
-    <link rel="prefetch" href="assets/templates/composer0606.tpl?v=91djilae11a" />
-    <link rel="prefetch" href="assets/language/en-GB/topic0606.json?v=91djilae11a" />
-    <link rel="prefetch" href="assets/language/en-GB/modules0606.json?v=91djilae11a" />
-    <link rel="prefetch" href="assets/language/en-GB/tags0606.json?v=91djilae11a" />
-    <link rel="prefetch stylesheet" href="plugins/nodebb-plugin-markdown/styles/railscasts.css" />
+    <link rel="apple-touch-icon" href="{{asset('assets/uploads/system/touchicon-orig.png')}}" />
+    <link rel="icon" sizes="36x36" href="{{asset('assets/uploads/system/touchicon-36.png')}}" />
+    <link rel="icon" sizes="48x48" href="{{asset('assets/uploads/system/touchicon-48.png')}}" />
+    <link rel="icon" sizes="72x72" href="{{asset('assets/uploads/system/touchicon-72.png')}}" />
+    <link rel="icon" sizes="96x96" href="{{asset('assets/uploads/system/touchicon-96.png')}}" />
+    <link rel="icon" sizes="144x144" href="{{asset('assets/uploads/system/touchicon-144.png')}}" />
+    <link rel="icon" sizes="192x192" href="{{asset('assets/uploads/system/touchicon-192.png')}}" />
+    <link rel="prefetch" href="{{asset('assets/src/modules/composer0606.js?v=91djilae11a')}}" />
+    <link rel="prefetch" href="{{asset('assets/src/modules/composer/uploads0606.js?v=91djilae11a')}}" />
+    <link rel="prefetch" href="{{asset('assets/src/modules/composer/drafts0606.js?v=91djilae11a')}}" />
+    <link rel="prefetch" href="{{asset('assets/src/modules/composer/tags0606.js?v=91djilae11a')}}" />
+    <link rel="prefetch" href="{{asset('assets/src/modules/composer/categoryList0606.js?v=91djilae11a')}}" />
+    <link rel="prefetch" href="{{asset('assets/src/modules/composer/resize0606.js?v=91djilae11a')}}" />
+    <link rel="prefetch" href="{{asset('assets/src/modules/composer/autocomplete0606.js?v=91djilae11a')}}" />
+    <link rel="prefetch" href="{{asset('assets/templates/composer0606.tpl?v=91djilae11a')}}" />
+    <link rel="prefetch" href="{{asset('assets/language/en-GB/topic0606.json?v=91djilae11a')}}" />
+    <link rel="prefetch" href="{{asset('assets/language/en-GB/modules0606.json?v=91djilae11a')}}" />
+    <link rel="prefetch" href="{{asset('assets/language/en-GB/tags0606.json?v=91djilae11a')}}" />
+    <link rel="prefetch stylesheet" href="{{asset('plugins/nodebb-plugin-markdown/styles/railscasts.css')}}" />
     <link rel="prefetch" href="assets/src/modules/highlight0606.js?v=91djilae11a" />
     <link rel="prefetch" href="assets/language/en-GB/markdown0606.json?v=91djilae11a" />
     <link rel="stylesheet" href="plugins/nodebb-plugin-emoji/emoji/styles0606.css?v=91djilae11a" />

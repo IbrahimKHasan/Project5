@@ -13,7 +13,10 @@ class ShowPostController extends Controller
         ->select('*')
         ->join('users', 'users.id', '=', 'posts.user_id')
         ->join('categories', 'categories.category_id', '=', 'posts.category_id')
+        ->join('comments', 'comments.post_id', '=', 'posts.post_id')
+        ->where('posts.post_id', '=', 1)
         ->get();
-        return view('trueIndex',compact('posts'));
+        // dd($posts);
+        return view('public_site.single_post',compact('posts'));
     }
 }
