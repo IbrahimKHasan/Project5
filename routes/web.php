@@ -106,5 +106,6 @@ Route::get("add/addPost", [PostController::class,'add_post'])->name('add_post');
 Route::post('index/add/addPost',[PublicPagesController::class,'store'])->name('addPost.store');
 // Route::resource('index/add/addPost',PostController::class);
 Route::delete('delete/{post}',[UserProfileController::class,'destroy'])->name('profile_delete');
+Route::post('add/comment',[UserProfileController::class,'add'])->name('add_comment');
 
 

@@ -218,7 +218,15 @@
                             </small>
                             <p dir="auto"> {!! $posts[0]->post_body!!}
                             </p>
-
+                        <form action="{{route('add_comment')}}" method="post" role="form" component="profile/edit/form">
+                          @csrf
+                          <div class="form-group">
+                              <label for="birthday">Write a Reply</label>
+                              <textarea class="ckeditor form-control" name="comment"></textarea>
+                              <input type="hidden" name="post_id" value="{{$posts[0]->post_id}}" id="">
+                          </div>
+                          <input type="submit" name="submit" value="Add Comment">
+                      </form>
                         </div>
                         <div class="clearfix post-footer">
                             <small class="pull-right post-footer-menu">
@@ -279,7 +287,7 @@
                                     <a href="https://forums.opera.com/user/lillollo">
                                         <img class="avatar  avatar-sm2x avatar-rounded" alt="lillollo" title="lillollo"
                                             data-uid="289478" loading="lazy" component="user/picture"
-                                            src="./black/img/{{ $comment->image }}" style="" />
+                                                src=" {{asset("black/img/".$comment->image)}}" style="" />
                                         <i component="user/status" class="fa fa-circle status offline" title="Offline"></i>
                                     </a>
                                 </div>
@@ -289,7 +297,7 @@
                                 <small class="post-author">
                                     <strong>
                                         <a href="https://forums.opera.com/user/lillollo" itemprop="author"
-                                            data-username="lillollo" data-uid="289478">{{ $comment->name }}</a>
+                                            data-username="lillollo" data-uid="289478">{!! $comment->name !!}</a>
                                     </strong>
                                     <span
                                         class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
@@ -311,7 +319,7 @@
                                                 class="timeago" title="2021-12-23T21:38:55.651Z"></span></a>
                                     </span>
                                 </small>
-                                <p dir="auto"> {{ $comment->comment }}
+                                <p dir="auto"> {!! $comment->comment !!}
                                 </p>
                             </div>
 
@@ -473,5 +481,6 @@
             <p>Looks like your connection to Opera forums was lost, please wait while we try to reconnect.</p>
         </div>
     </div>
+    <script src="//cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
 
 @endsection

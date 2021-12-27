@@ -12,7 +12,7 @@ class Comment extends Model
         'comment_id',
         'comment',
         'user_id',
-        'post_id ',
+        'post_id',
         'created_at',
         'updated_at'
     ];

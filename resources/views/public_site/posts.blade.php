@@ -67,8 +67,6 @@
                                     <div class="col-md-8 show-separator clickable-area">
                                         <a class="clickable-area-link" href="/index/post/{{ $post->post_id }}"> </a>
                                         <h2 class="title">
-
-
                                             <a href="/index/post/{{ $post->post_id }}" itemprop="url">
 
                                                 {{ $post->post_title }}
@@ -81,9 +79,20 @@
                                         </div>
 
                                     </div>
+                                    <?php
+                                    $counter = DB::table('comments')
+                                    ->where('post_id', $post->post_id)
+                                    ->count();
+                                    ?>
+                                     <div class="col-md-4 hidden-sm hidden-xs stats">
+                                      <span class="unread human-readable-number"
+                                          title="152589">
+                                      {{$counter}}
+                                      </span><br />
+                                      <small>Comments</small>
+                                  </div>
 
-
-{{--
+{{--                                {{}}
                                     <span class="visible-xs col-xs-12">
 
                                         <a class="permalink"
