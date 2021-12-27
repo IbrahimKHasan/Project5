@@ -66,11 +66,11 @@
 
                                 <div class="content">
                                     <div class="col-md-8 show-separator clickable-area">
-                                        <a class="clickable-area-link" href="index/2"> </a>
+                                        <a class="clickable-area-link" href="post/{{$post->post_id}}"> </a>
                                         <h2 class="title">
 
 
-                                            <a href="index/2" itemprop="url">
+                                            <a href="post/{{$post->post_id}}" itemprop="url">
 
                                                 {{$post->post_title}}
                                             </a>
