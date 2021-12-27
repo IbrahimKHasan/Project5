@@ -39,7 +39,7 @@
                       <div class="card-body">
                         <h5 class="card-title">عنوان المنشور</h5>
                         <p class="card-text">نص المنشور</p>
-                        <a href="#" class="btn btn-danger">حذف المنشور</a>
+                        <a href="#" class="btn btn-danger btn-sm">حذف المنشور</a>
                       </div>
                     </div>
                   </div>
@@ -48,7 +48,7 @@
                       <div class="card-body">
                         <h5 class="card-title">عنوان المنشور</h5>
                         <p class="card-text">نص المنشور</p>
-                        <a href="#" class="btn btn-danger">حذف المنشور</a>
+                        <a href="#" class="btn btn-danger btn-sm">حذف المنشور</a>
                       </div>
                     </div>
                   </div>
@@ -57,36 +57,7 @@
                       <div class="card-body">
                         <h5 class="card-title">عنوان المنشور</h5>
                         <p class="card-text">نص المنشور</p>
-                        <a href="#" class="btn btn-danger">حذف المنشور</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-4 col-sm-12">
-                    <div class="card" style="width: 17rem;">
-                      <div class="card-body">
-                        <h5 class="card-title">عنوان المنشور</h5>
-                        <p class="card-text">نص المنشور</p>
-                        <a href="#" class="btn btn-danger">حذف المنشور</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-sm-12">
-                    <div class="card" style="width: 17rem;">
-                      <div class="card-body">
-                        <h5 class="card-title">عنوان المنشور</h5>
-                        <p class="card-text">نص المنشور</p>
-                        <a href="#" class="btn btn-danger">حذف المنشور</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-sm-12">
-                    <div class="card" style="width: 17rem;">
-                      <div class="card-body">
-                        <h5 class="card-title">عنوان المنشور</h5>
-                        <p class="card-text">نص المنشور</p>
-                        <a href="#" class="btn btn-danger">حذف المنشور</a>
+                        <a href="#" class="btn btn-danger btn-sm">حذف المنشور</a>
                       </div>
                     </div>
                   </div>
@@ -97,7 +68,7 @@
                       <div class="card-body">
                         <h5 class="card-title">عنوان المنشور</h5>
                         <p class="card-text">نص المنشور</p>
-                        <a href="#" class="btn btn-danger">حذف المنشور</a>
+                        <a href="#" class="btn btn-danger btn-sm">حذف المنشور</a>
                       </div>
                     </div>
                   </div>
@@ -106,7 +77,7 @@
                       <div class="card-body">
                         <h5 class="card-title">عنوان المنشور</h5>
                         <p class="card-text">نص المنشور</p>
-                        <a href="#" class="btn btn-danger">حذف المنشور</a>
+                        <a href="#" class="btn btn-danger btn-sm">حذف المنشور</a>
                       </div>
                     </div>
                   </div>
@@ -115,7 +86,36 @@
                       <div class="card-body">
                         <h5 class="card-title">عنوان المنشور</h5>
                         <p class="card-text">نص المنشور</p>
-                        <a href="#" class="btn btn-danger">حذف المنشور</a>
+                        <a href="#" class="btn btn-danger btn-sm">حذف المنشور</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4 col-sm-12">
+                    <div class="card" style="width: 17rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">عنوان المنشور</h5>
+                        <p class="card-text">نص المنشور</p>
+                        <a href="#" class="btn btn-danger btn-sm">حذف المنشور</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12">
+                    <div class="card" style="width: 17rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">عنوان المنشور</h5>
+                        <p class="card-text">نص المنشور</p>
+                        <a href="#" class="btn btn-danger btn-sm">حذف المنشور</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12">
+                    <div class="card" style="width: 17rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">عنوان المنشور</h5>
+                        <p class="card-text">نص المنشور</p>
+                        <a href="#" class="btn btn-danger btn-sm">حذف المنشور</a>
                       </div>
                     </div>
                   </div>

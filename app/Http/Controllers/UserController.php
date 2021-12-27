@@ -31,10 +31,22 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create_user(Request $request){
+    public function create_user(Request $data){
 
-            User::create($request->all());
+            // $request['password']=Hash::make('$request->password');
 
+            // User::create($request->all());
+
+            $image = 'IMG'.'-'.time().'.'.$data->image->extension();
+            $data->image->move(public_path('black/img'),$image);
+            User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'role'=>$data['role'],
+                'password' => Hash::make($data['password']),
+                'image'=>$image
+            ]);
+            // dd($data['role']);
             return redirect()->route('manage_user');
     }
     public function edit_user(User $user)

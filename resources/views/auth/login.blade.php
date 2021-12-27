@@ -4,7 +4,7 @@
     <div class="col-lg-4 col-md-6 ml-auto mr-auto">
         <form class="form" method="post" action="{{ route('login') }}">
             @csrf
-            <div class="card card-login card-white">
+            <div class="card card-login card-white" >
 
                     <h1 style="color:#cf51de;font-weight: bolder" class="text-center mt-3">تسجيل الدخول</h1>
                 <div class="card-body">
@@ -34,6 +34,10 @@
                     </div>
                 </div>
             </div>
+        </form>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
+            @csrf
+            <button class="nav-item dropdown-item" style="cursor:pointer" type="submit">تسجيل الخروج</button>
         </form>
     </div>
 @endsection

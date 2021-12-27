@@ -17,6 +17,7 @@ class CommentController extends Controller
         $comments = DB::table('comments')
         ->select('*')
         ->join('users', 'users.id', '=', 'comments.user_id')
+        ->join('posts', 'posts.post_id', '=', 'comments.post_id')
         ->get();
 
         return view("pages.comment.manage_comment", compact("comments"));

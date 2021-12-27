@@ -2,24 +2,35 @@
 @section('title','إدارة الأصناف')
 @section('user-active','class=active')
 @section('content')
-<div class="content text-right">
+<div class="content text-right" style="color:white">
 <div class="row">
     <div class="col-md-12">
-        <form method="get" action="{{Route('create_user')}}" autocomplete="off">
+        <form method="post" action="{{Route('create_user')}}" autocomplete="off" enctype="multipart/form-data">
             <div class="card-body">
                     @csrf
                     @include('alerts.success')
-
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                         <label>{{ __('الاسم') }}</label>
-                        <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}">
+                        <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="الاسم">
                         @include('alerts.feedback', ['field' => 'name'])
                     </div>
 
                     <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                         <label>{{ __('البريد الالكتروني') }}</label>
-                        <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email address') }}" value="{{ old('email', auth()->user()->email) }}">
+                        <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="البريد الالكتروني">
                         @include('alerts.feedback', ['field' => 'email'])
+                    </div>
+                    <div class="form-group{{ $errors->has('role') ? ' has-danger' : '' }}">
+                        <label>{{ __('الدور') }}</label>
+                        <input type="text" name="role" class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" placeholder="الدور">
+                        @include('alerts.feedback', ['field' => 'role'])
+                    </div>
+                    <div>
+                        <label>الصورة
+                          <img src="black/img/addo.png" width="60px" height="60px" alt="" style="cursor: pointer;">
+                        <input type="file" style="display:none" name="image" class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" >
+                        </label>
+                         @include('alerts.feedback', ['field' => 'image'])
                     </div>
                     <div class="form-group">
                         <label>{{ __('كلمة السر') }}</label>
@@ -57,20 +68,23 @@
                 <table class="table tablesorter " id="">
                   <thead class=" text-primary">
                     <tr>
-                      <th>
+                      <th class="text-center">
                         الاسم
                       </th>
-                      <th>
+                      <th class="text-center">
                         البريد الالكتروني
                       </th>
-                      <th>
+                      <th class="text-center">
+                        الدور
+                      </th>
+                      <th class="text-center">
                         تاريخ الانشاء
                       </th>
                       <th class="text-center">
-                        اخر تعديل
-                      </th>
-                      <th>
-
+                        الصورة
+                     </th>
+                      <th class="text-center">
+                        التعديلات
                       </th>
                     </tr>
                   </thead>
@@ -79,17 +93,20 @@
 
 
                     <tr>
-                      <td>
+                      <td class="text-center">
                         {{$user->name}}
                       </td>
-                      <td>
+                      <td class="text-center">
                         {{$user->email}}
                       </td>
-                      <td>
+                      <td class="text-center">
+                        {{$user->role}}
+                      </td>
+                      <td class="text-center">
                         {{$user->created_at}}
                       </td>
                       <td class="text-center">
-                        {{$user->updated_at}}
+                        <img src='{{asset("black/img/$user->image")}}' alt="" width="90px" height="90px">
                       </td>
                       <td class="text-center">
                         <a href="{{route('edit', $user)}}"><button type="button" class="btn btn-primary btn-sm">تعديل</button></a>

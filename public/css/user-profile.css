@@ -52,3 +52,13 @@ body{
   .shadow-none {
     box-shadow: none!important;
   }
+
+  .btn-danger {
+    background-image: linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93);
+    background-size: 210% 210%;
+    background-position: top right;
+    background-color: #fd5d93;
+    transition: all 0.15s ease;
+    box-shadow: none;
+    color: #ffffff;
+  }
