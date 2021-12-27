@@ -22,4 +22,5 @@ class PublicPagesController extends Controller
 
         return view('public_site.posts',compact('categories','cat_name'));
     }
+
 }

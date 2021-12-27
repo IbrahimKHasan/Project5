@@ -11,6 +11,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ShowPostController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PublicPagesController;
+use App\Models\Post;
 use Illuminate\Http\Client\Request;
 
 /*
@@ -94,3 +95,5 @@ Route::get("/search",[ShowPostController::class, 'search']);
 Route::resource("/contact", ContactController::class);
 Route::get("/main", [PublicPagesController::class,'index'])->name('publicIndex');
 Route::get("/index/{category_id}", [PublicPagesController::class,'post'])->name('publicposts');
+Route::get("add/addPost", [PostController::class,'add_post'])->name('add_post');
+Route::resource('index/add/addPost',PostController::class);
