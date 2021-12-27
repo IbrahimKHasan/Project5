@@ -43,7 +43,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        dd('hello');
     }
 
     /**
@@ -55,6 +55,9 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+    }
+    public function add_post(){
+        return view('public_site.add_post');
     }
 
     /**
