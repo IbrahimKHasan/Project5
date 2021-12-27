@@ -17,10 +17,21 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('post_id');
             $table->string('post_tag');
             $table->string('post_title');
-            $table->string('post_body');
-            $table->unsignedInteger('category_id');
-            $table->unsignedInteger('user_id');
+            $table->text('post_body');
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+                });
+
+        Schema::table('posts', function (Blueprint $table) {
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
+            $table->foreign('category_id')
+            ->references('category_id')
+            ->on('categories')
+            ->onDelete('cascade');
         });
     }
 
