@@ -10,6 +10,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ShowPostController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PublicPagesController;
 use Illuminate\Http\Client\Request;
 
 /*
@@ -23,10 +24,10 @@ use Illuminate\Http\Client\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
-Route::post('/welcomebaba',function(){
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
+Route::get('/welcomebaba',function(){
 
     return view('index');
 })->name('indexo');
@@ -86,3 +87,5 @@ Route::get("reddit",[ShowPostController::class, 'show']);
 
 // Route::get('contact', [ContactController::class]);
 Route::resource("/contact", ContactController::class);
+Route::get("/", [PublicPagesController::class,'index'])->name('publicIndex');
+Route::get("/index/{category_id}", [PublicPagesController::class,'post'])->name('publicposts');
