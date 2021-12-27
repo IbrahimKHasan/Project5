@@ -36,7 +36,8 @@ class RedirectIfAuthenticated
       if(Hash::check($request->password,$pass)){
           session_start();
           $_SESSION['email']=$email;
-        return redirect('contact');
+        $_SESSION['login']='true';
+        return redirect('/main');
       }else{return $next($request);}
     }
     return redirect('/');

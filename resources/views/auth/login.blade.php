@@ -35,5 +35,9 @@
                 </div>
             </div>
         </form>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
+            @csrf
+            <button class="nav-item dropdown-item" style="cursor:pointer" type="submit">تسجيل الخروج</button>
+        </form>
     </div>
 @endsection
