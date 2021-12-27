@@ -51,11 +51,11 @@
         <div class="row">
             <div class="col-lg-12">
 
-                <h1 class="section-title">Posts about {{ $cat_name }} </h1>
+                @foreach ($posts as $post)
+                    <h1 class="section-title">Posts about {{ $post->category_name }} </h1>
 
-                <ul class="categories" itemscope itemtype="http://www.schema.org/ItemList">
+                    <ul class="categories" itemscope itemtype="http://www.schema.org/ItemList">
 
-                    @foreach ($categories as $post)
 
                         <li component="categories/category" data-cid="5" data-numRecentReplies="1"
                             class="clearfix category-5">
@@ -123,7 +123,7 @@
                             </div>
 
                         </li>
-                    @endforeach
+                @endforeach
                 </ul>
                 <div component="pagination" class="text-center pagination-container hidden">
                     <ul class="pagination hidden-xs">
