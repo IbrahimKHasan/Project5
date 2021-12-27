@@ -87,6 +87,11 @@ Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () 
     Route::resource("manage_comments", CommentController::class);
 
 });
+
+Route::get('/user_profile', function () {
+    return view("users/user_pofile");
+});
+
 Route::get("userLogin",[UserLoginController::class,'UserLogin']);
 Route::get("index/post/{post}",[ShowPostController::class, 'show']);
 Route::get("/search",[ShowPostController::class, 'search']);
@@ -98,3 +103,5 @@ Route::get("/index/{category_id}", [PublicPagesController::class,'post'])->name(
 Route::get("add/addPost", [PostController::class,'add_post'])->name('add_post');
 // Route::resource('index/add/addPost',PostController::class)->middleware('auth');
 Route::post('index/add/addPost',[PublicPagesController::class,'store'])->name('addPost.store');
+// Route::resource('index/add/addPost',PostController::class);
+
