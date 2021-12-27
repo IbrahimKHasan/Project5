@@ -25,4 +25,13 @@ class ShowPostController extends Controller
         // dd($comments);
         return view('public_site.single_post',compact('posts','comments'));
     }
+    
+    public function search(Request $request){
+        $search_text = $request->get('query');
+        $posts = Post::where('post_title', 'LIKE', '%'.$search_text.'%')
+        ->orWhere('post_body', 'LIKE', '%'.$search_text.'%')
+        ->orWhere('post_tag', 'LIKE', '%'.$search_text.'%')->get();
+        // dd($posts);
+        return view('public_site.search',compact('posts'));
+    }
 }

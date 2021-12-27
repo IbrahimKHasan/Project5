@@ -88,6 +88,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () 
 });
 Route::get("userLogin",[UserLoginController::class,'UserLogin']);
 Route::get("index/post/{post}",[ShowPostController::class, 'show']);
+Route::get("/search",[ShowPostController::class, 'search']);
 
 // Route::get('contact', [ContactController::class]);
 Route::resource("/contact", ContactController::class);

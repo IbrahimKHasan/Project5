@@ -331,7 +331,7 @@
 
                     <ul class="categories" itemscope itemtype="http://www.schema.org/ItemList">
 
-                        @foreach ($categories as $category)
+                        @foreach ($posts as $post)
 
                             <li component="categories/category" data-cid="5" data-numRecentReplies="1"
                                 class="clearfix category-5">
@@ -342,14 +342,14 @@
 
                                     <div class="content">
                                         <div class="col-md-8 show-separator clickable-area">
-                                            <a class="clickable-area-link" href="index/{{ $category->category_id }}">
+                                            <a class="clickable-area-link" href="index/post/{{ $post->category_id }}">
                                             </a>
                                             <h2 class="title">
 
 
-                                                <a href="index/{{ $category->category_id }}" itemprop="url">
+                                                <a href="index/post/{{ $post->category_id }}" itemprop="url">
 
-                                                    {{ $category->category_name }}
+                                                    {{ $post->category_name }}
                                                 </a>
 
                                             </h2>
