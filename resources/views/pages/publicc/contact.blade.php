@@ -142,6 +142,13 @@
                       </div>
                       <div class="text pl-3">
                         <p><span>الموقع: عمان-دوار الداخلية</span></p>
+                        <?php
+                        session_start();
+echo $_SESSION['email'] ?></p>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
+    @csrf
+    <button class="nav-item dropdown-item" style="cursor:pointer" type="submit">تسجيل الخروج</button>
+</form>
                     </div>
                     </div>
                     <div class="dbox w-100 d-flex align-items-center">

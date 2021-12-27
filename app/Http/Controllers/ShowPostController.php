@@ -8,15 +8,21 @@ use Illuminate\Support\Facades\DB;
 
 class ShowPostController extends Controller
 {
-    public function show(){
+    public function show($id){
         $posts = DB::table('posts')
         ->select('*')
         ->join('users', 'users.id', '=', 'posts.user_id')
         ->join('categories', 'categories.category_id', '=', 'posts.category_id')
-        ->join('comments', 'comments.post_id', '=', 'posts.post_id')
-        ->where('posts.post_id', '=', 1)
+        ->where('posts.post_id', '=', $id)
         ->get();
-        // dd($posts);
-        return view('public_site.single_post',compact('posts'));
+
+        $comments =  DB::table('comments')
+        ->select('*')
+        ->join('users', 'users.id', '=', 'comments.user_id')
+        ->join('posts', 'comments.post_id', '=', 'posts.post_id')
+        ->where('posts.post_id', '=', $id)
+        ->get();
+        // dd($comments);
+        return view('public_site.single_post',compact('posts','comments'));
     }
 }
