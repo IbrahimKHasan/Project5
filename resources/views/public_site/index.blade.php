@@ -55,81 +55,84 @@
 
                         @foreach ($categories as $category)
 
-                        <li component="categories/category" data-cid="5" data-numRecentReplies="1"
-                            class="clearfix category-5">
-                            <meta itemprop="name" content="Opera for computers">
+                            <li component="categories/category" data-cid="5" data-numRecentReplies="1"
+                                class="clearfix category-5">
+                                <meta itemprop="name" content="Opera for computers">
 
-                            <div class="category-details clearfix col-md-9 col-sm-9">
-                                <div class="category-color" style="background-color: #501ac4"></div>
+                                <div class="category-details clearfix col-md-9 col-sm-9">
+                                    <div class="category-color" style="background-color: #501ac4"></div>
 
-                                <div class="content">
-                                    <div class="col-md-8 show-separator clickable-area">
-                                        <a class="clickable-area-link" href="index/2"> </a>
-                                        <h2 class="title">
-
-
-                                            <a href="index/2" itemprop="url">
-
-                                                {{$category->category_name}}
+                                    <div class="content">
+                                        <div class="col-md-8 show-separator clickable-area">
+                                            <a class="clickable-area-link" href="index/{{ $category->category_id }}">
                                             </a>
+                                            <h2 class="title">
 
-                                        </h2>
 
-                                        <div class="description">
-                                            <p>Discussions about Opera browser that runs on your computer</p>
+                                                <a href="index/{{ $category->category_id }}" itemprop="url">
+
+                                                    {{ $category->category_name }}
+                                                </a>
+
+                                            </h2>
+
+                                            <div class="description">
+                                                <p>Discussions about Opera browser that runs on your computer</p>
+
+                                            </div>
 
                                         </div>
 
+                                        <div class="col-md-2 hidden-sm hidden-xs stats">
+                                            <span class="unread human-readable-number" title="31073">31073</span><br />
+                                            <small>Topics</small>
+                                        </div>
+
+                                        <div class="col-md-2 hidden-sm hidden-xs stats">
+                                            <span class="unread human-readable-number"
+                                                title="152589">152589</span><br />
+                                            <small>Posts</small>
+                                        </div>
+
+                                        <span class="visible-xs col-xs-12">
+
+                                            <a class="permalink"
+                                                href="topic/53368/crash-opera-deleted-all-tabs-what-to-do/2a4c9.html">
+                                                <small class="timeago" title="2021-12-26T19:11:39.634Z"></small>
+                                            </a>
+
+                                        </span>
+
                                     </div>
 
-                                    <div class="col-md-2 hidden-sm hidden-xs stats">
-                                        <span class="unread human-readable-number" title="31073">31073</span><br />
-                                        <small>Topics</small>
-                                    </div>
-
-                                    <div class="col-md-2 hidden-sm hidden-xs stats">
-                                        <span class="unread human-readable-number" title="152589">152589</span><br />
-                                        <small>Posts</small>
-                                    </div>
-
-                                    <span class="visible-xs col-xs-12">
-
-                                        <a class="permalink"
-                                            href="topic/53368/crash-opera-deleted-all-tabs-what-to-do/2a4c9.html">
-                                            <small class="timeago" title="2021-12-26T19:11:39.634Z"></small>
-                                        </a>
-
-                                    </span>
+                                    <span class="col-md-12 col-xs-12 box-footer"><a
+                                            href="category/11/opera-for-windows.html"><span class="fa-stack fa-lg"><i
+                                                    style="color: #f2f2f2;" class="fa fa-circle fa-stack-2x"></i><i
+                                                    style="color:#00abef;"
+                                                    class="fa fa-stack-1x fa-windows"></i></span><small>Opera for
+                                                Windows</small></a> <a href="category/12/opera-for-mac.html"><span
+                                                class="fa-stack fa-lg"><i style="color: #f2f2f2;"
+                                                    class="fa fa-circle fa-stack-2x"></i><i style="color:#89a1d4;"
+                                                    class="fa fa-stack-1x fa-apple"></i></span><small>Opera for
+                                                Mac</small></a> <a href="category/13/opera-for-linux.html"><span
+                                                class="fa-stack fa-lg"><i style="color: #f2f2f2;"
+                                                    class="fa fa-circle fa-stack-2x"></i><i style="color:#dd4a14;"
+                                                    class="fa fa-stack-1x fa-linux"></i></span><small>Opera for
+                                                Linux</small></a> <a href="category/14/future-releases.html"><span
+                                                class="fa-stack fa-lg"><i style="color: #f2f2f2;"
+                                                    class="fa fa-circle fa-stack-2x"></i><i style="color:#ff2929;"
+                                                    class="fa fa-stack-1x fa-forward"></i></span><small>Future
+                                                releases</small></a> <a
+                                            href="category/15/suggestions-and-feature-requests.html"><span
+                                                class="fa-stack fa-lg"><i style="color: #f2f2f2;"
+                                                    class="fa fa-circle fa-stack-2x"></i><i style="color:#009687;"
+                                                    class="fa fa-stack-1x fa-thumbs-up"></i></span><small>Suggestions
+                                                and
+                                                feature requests</small></a> </span>
 
                                 </div>
 
-                                <span class="col-md-12 col-xs-12 box-footer"><a
-                                        href="category/11/opera-for-windows.html"><span class="fa-stack fa-lg"><i
-                                                style="color: #f2f2f2;" class="fa fa-circle fa-stack-2x"></i><i
-                                                style="color:#00abef;"
-                                                class="fa fa-stack-1x fa-windows"></i></span><small>Opera for
-                                            Windows</small></a> <a href="category/12/opera-for-mac.html"><span
-                                            class="fa-stack fa-lg"><i style="color: #f2f2f2;"
-                                                class="fa fa-circle fa-stack-2x"></i><i style="color:#89a1d4;"
-                                                class="fa fa-stack-1x fa-apple"></i></span><small>Opera for
-                                            Mac</small></a> <a href="category/13/opera-for-linux.html"><span
-                                            class="fa-stack fa-lg"><i style="color: #f2f2f2;"
-                                                class="fa fa-circle fa-stack-2x"></i><i style="color:#dd4a14;"
-                                                class="fa fa-stack-1x fa-linux"></i></span><small>Opera for
-                                            Linux</small></a> <a href="category/14/future-releases.html"><span
-                                            class="fa-stack fa-lg"><i style="color: #f2f2f2;"
-                                                class="fa fa-circle fa-stack-2x"></i><i style="color:#ff2929;"
-                                                class="fa fa-stack-1x fa-forward"></i></span><small>Future
-                                            releases</small></a> <a
-                                        href="category/15/suggestions-and-feature-requests.html"><span
-                                            class="fa-stack fa-lg"><i style="color: #f2f2f2;"
-                                                class="fa fa-circle fa-stack-2x"></i><i style="color:#009687;"
-                                                class="fa fa-stack-1x fa-thumbs-up"></i></span><small>Suggestions and
-                                            feature requests</small></a> </span>
-
-                            </div>
-
-                        </li>
+                            </li>
                         @endforeach
                     </ul>
                     <div component="pagination" class="text-center pagination-container hidden">
