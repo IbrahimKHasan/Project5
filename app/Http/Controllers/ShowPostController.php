@@ -28,9 +28,14 @@ class ShowPostController extends Controller
     
     public function search(Request $request){
         $search_text = $request->get('query');
-        $posts = Post::where('post_title', 'LIKE', '%'.$search_text.'%')
+        $posts = DB::table('posts')
+        ->select('*')
+        ->join('categories', 'categories.category_id', '=', 'posts.category_id')
+        ->where('post_title', 'LIKE', '%'.$search_text.'%')
         ->orWhere('post_body', 'LIKE', '%'.$search_text.'%')
         ->orWhere('post_tag', 'LIKE', '%'.$search_text.'%')->get();
+
+
         // dd($posts);
         return view('public_site.search',compact('posts'));
     }
