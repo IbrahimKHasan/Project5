@@ -1,7 +1,14 @@
+{{--
+session_start();
+echo $_SESSION['email'] ?></p>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
+    @csrf
+    <button class="nav-item dropdown-item" style="cursor:pointer" type="submit">تسجيل الخروج</button>
+</form>
+--}}
+
        {{-- @extends('layouts.header')
        @section('content')
-
-
            <div class="mt-12">
                <div class="bg-white dark:bg-gray-700 dark:text-white mb-3">
                    <div class="container mx-auto">

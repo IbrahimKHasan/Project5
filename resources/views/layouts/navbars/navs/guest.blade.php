@@ -21,6 +21,9 @@
                     <a href="{{ route('login') }}" class="nav-link">
                         <i class="tim-icons icon-single-02"></i> تسجيل الدخول
                     </a>
+                    <a href="{{ route('register') }}" class="nav-link">
+                        <i class="tim-icons icon-single-02"></i> Register
+                    </a>
                 </li>
             </ul>
         </div>

@@ -36,11 +36,15 @@ class UserController extends Controller
             // $request['password']=Hash::make('$request->password');
 
             // User::create($request->all());
+
+            $image = 'IMG'.'-'.time().'.'.$data->image->extension();
+            $data->image->move(public_path('black/img'),$image);
             User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'role'=>$data['role'],
                 'password' => Hash::make($data['password']),
+                'image'=>$image
             ]);
             // dd($data['role']);
             return redirect()->route('manage_user');

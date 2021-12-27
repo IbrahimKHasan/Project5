@@ -30,6 +30,7 @@
                 <div
                   class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch"
                 >
+
                   <div class="contact-wrap w-100 p-md-5 p-4">
                     <h3 class="mb-4">املئ معلوماتك</h3>
                     <div id="form-message-warning" class="mb-4"></div>
@@ -141,7 +142,7 @@
                       </div>
                       <div class="text pl-3">
                         <p><span>الموقع: عمان-دوار الداخلية</span></p>
-                      </div>
+                    </div>
                     </div>
                     <div class="dbox w-100 d-flex align-items-center">
                       <div

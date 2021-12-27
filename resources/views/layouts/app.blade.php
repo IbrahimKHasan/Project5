@@ -7,7 +7,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>لوحة المشرفين</title>
+        <title>Login</title>
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('black') }}/img/reddit.png">
         <link rel="icon" type="image/png" href="{{ asset('black') }}/img/reddit.png">
@@ -20,14 +20,14 @@
         <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
     </head>
-    <body class="rtl menu-on-right ">
+    <body>
         @auth()
             <div class="wrapper">
                     @include('layouts.navbars.sidebar')
-                <div class="main-panel">
+                <div class="main-panel" style="background-color: white">
                     @include('layouts.navbars.navbar')
 
-                    <div class="content">
+                    <div class="content" style="background-color: white">
                         @yield('content')
                     </div>
 

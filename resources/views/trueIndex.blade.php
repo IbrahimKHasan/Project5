@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl">
 
 <!-- Mirrored from gambolthemes.net/workwise-new/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Dec 2021 15:24:10 GMT -->
 
@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
 </head>
 
-<body>
+<body class="on-menu-right rtl">
     <div class="wrapper">
         <header>
             <div class="container">

@@ -29,8 +29,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/contact';
     /**
      * Create a new controller instance.
      *
@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        // $this->middleware('guest');
     }
 
     /**
@@ -64,10 +64,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $image = 'IMG'.'-'.time().'.'.$data['image']->extension();
+        $data['image']->move(public_path('black/img'),$image);
+        session_start();
+        $_SESSION['email']=$data['email'];
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'image'=>$image
         ]);
     }
 }

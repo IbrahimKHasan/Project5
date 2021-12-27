@@ -6,6 +6,8 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class RedirectIfAuthenticated
 {
@@ -20,13 +22,23 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next, ...$guards)
     {
         $guards = empty($guards) ? [null] : $guards;
-
+        $email = $request->email;
+        $role = DB::table('users')->where('email', $email)->value('role');
+        $pass = DB::table('users')->where('email', $email)->value('password');
+        if ($role == 'admin'){
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);
             }
         }
-
         return $next($request);
+    }else if ($role == 'user'){
+      if(Hash::check($request->password,$pass)){
+          session_start();
+          $_SESSION['email']=$email;
+        return redirect('contact');
+      }else{return $next($request);}
+    }
+    return redirect('/');
     }
 }
