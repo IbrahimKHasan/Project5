@@ -107,19 +107,38 @@
                 </div>
 
                 <div id="nav-dropdown" class="hidden-xs">
-
-
+                    <?php if (!session()->has('name')) {?>
                     <ul id="logged-out-menu" class="nav navbar-nav navbar-right">
                         <li class="login">
                             <a class="operaLoginButton"
-                                href="https://oauth2.opera-api.com/oauth2/v1/authorize/?show_account_chooser=1&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Fforums.opera.com%2Fauth%2Fopera%2Fcallback&amp;scope=user%3Aread&amp;state=WiesR80v-eYtHIJun2fQPjDK_huq7zsYnYdE&amp;client_id=forums"
+                                href="/"
                                 data-base-href="/auth/opera" rel="nofollow" target="_top">
                                 <span class="btn btn-primary">Login</span>
                             </a>
                         </li>
                     </ul>
-
-
+                <?php }else { ?>
+                    <ul id="logged-out-menu" class="nav navbar-nav navbar-right">
+                        <li class="login">
+                            <a class="operaLoginButton"
+                                href=""
+                                data-base-href="/auth/opera" rel="nofollow" target="_top">
+                                <span class="btn btn-primary"><?php echo session('name') ?></span>
+                            </a>
+                        </li>
+                        <li class="login">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
+                                @csrf
+                                <a class="operaLoginButton">
+                                <button class="nav-item dropdown-item" type="submit">Logout</button>
+                            </form>
+                        </a>
+                        </li>
+                        <li class="login">
+                            <img src='{{asset("black/img/".session('image'))}}' width="40px" height="40px" alt="">
+                        </li>
+                    </ul>
+                    <?php } ?>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <form id="search-form" class="navbar-form clearfix hidden-xs"

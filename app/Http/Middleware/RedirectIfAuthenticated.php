@@ -25,6 +25,8 @@ class RedirectIfAuthenticated
         $email = $request->email;
         $role = DB::table('users')->where('email', $email)->value('role');
         $pass = DB::table('users')->where('email', $email)->value('password');
+        $name = DB::table('users')->where('email', $email)->value('name');
+        $img = DB::table('users')->where('email', $email)->value('image');
         if ($role == 'admin'){
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
@@ -36,7 +38,10 @@ class RedirectIfAuthenticated
       if(Hash::check($request->password,$pass)){
           session_start();
           $_SESSION['email']=$email;
-        $_SESSION['login']='true';
+          $_SESSION['name']=$name;
+        session(['name'=>$name]);
+        session(['email'=>$email]);
+        session(['image'=>$img]);
         return redirect('/main');
       }else{return $next($request);}
     }
