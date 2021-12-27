@@ -118,7 +118,7 @@
                         </li>
                     </ul>
                 <?php }else { ?>
-                    <ul id="logged-out-menu" class="nav navbar-nav navbar-right">
+                    <ul id="logged-out-menu" class="nav navbar-nav navbar-right" >
                         <li class="login">
                             <a class="operaLoginButton"
                                 href=""
