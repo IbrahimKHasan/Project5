@@ -11,6 +11,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ShowPostController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PublicPagesController;
+use App\Http\Controllers\UserProfileController;
 use App\Models\Post;
 use Illuminate\Http\Client\Request;
 
@@ -104,4 +105,6 @@ Route::get("add/addPost", [PostController::class,'add_post'])->name('add_post');
 // Route::resource('index/add/addPost',PostController::class)->middleware('auth');
 Route::post('index/add/addPost',[PublicPagesController::class,'store'])->name('addPost.store');
 // Route::resource('index/add/addPost',PostController::class);
+Route::delete('delete/{post}',[UserProfileController::class,'destroy'])->name('profile_delete');
+
 

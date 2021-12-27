@@ -93,47 +93,48 @@
             </div>
         </div>
     </div> --}}
-    <div class="hf-wrapper hf__bottom">
 
+    <div class="hf-wrapper hf__bottom">
         <div class="hf__social-box">
             <h2 class="hf__headline hf-hide">Follow Opera</h2>
             <ul class="hf__social-icons">
                 <li>
                     <a href="https://www.facebook.com/Opera/" target="_blank" rel="noopener nofollow"
                         title="Opera - Facebook">
-                        <img src="plugins/nodebb-theme-opera/static/images/social-icons/fb.svg" alt="Opera - Facebook">
+                        <img src="{{asset('plugins/nodebb-theme-opera/static/images/social-icons/fb.svg')}}" alt="Opera - Facebook">
                     </a>
                 </li>
                 <li>
                     <a href="https://twitter.com/opera" target="_blank" rel="noopener nofollow" title="Opera - Twitter">
-                        <img src="plugins/nodebb-theme-opera/static/images/social-icons/twitter.svg"
+                        <img src="{{asset('plugins/nodebb-theme-opera/static/images/social-icons/twitter.svg')}}"
                             alt="Opera - Twitter">
                     </a>
                 </li>
                 <li>
                     <a href="https://www.youtube.com/opera" target="_blank" rel="noopener nofollow"
                         title="Opera - YouTube">
-                        <img src="plugins/nodebb-theme-opera/static/images/social-icons/youtube.svg"
+                        <img src="{{asset('plugins/nodebb-theme-opera/static/images/social-icons/youtube.svg')}}"
                             alt="Opera - YouTube">
                     </a>
                 </li>
                 <li>
                     <a href="https://www.linkedin.com/company/opera-software" target="_blank" rel="noopener nofollow"
                         title="Opera - LinkedIn">
-                        <img src="plugins/nodebb-theme-opera/static/images/social-icons/linkedin.svg"
+                        <img src="{{asset('plugins/nodebb-theme-opera/static/images/social-icons/linkedin.svg')}}"
                             alt="Opera - LinkedIn">
                     </a>
                 </li>
                 <li>
                     <a class="instagram" href="https://www.instagram.com/opera/" target="_blank"
                         rel="noopener nofollow" title="Opera - Instagram">
-                        <img src="plugins/nodebb-theme-opera/static/images/social-icons/instagram.svg"
+                        <img src="{{asset('plugins/nodebb-theme-opera/static/images/social-icons/instagram.svg')}}"
                             alt="Opera - Instagram">
                     </a>
                 </li>
             </ul>
         </div>
         <div class="hf__company-box">
+          <p><a class="hf__link" href="/contact">Contact us</a></p>
             <p>&copy; Opera Software 1995-<span id="current-year"></span></p>
         </div>
     </div>

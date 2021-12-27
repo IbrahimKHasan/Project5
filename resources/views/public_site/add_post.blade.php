@@ -30,7 +30,8 @@
                 <label for="birthday">Discussion body</label>
                 <textarea class="ckeditor form-control" name="post_body"></textarea>
             </div>
-            <input type="submit" name="submit" value="save Post">
+            form
+            <input type="submit" name="submit" value="Add Post">
 
         </form>
 

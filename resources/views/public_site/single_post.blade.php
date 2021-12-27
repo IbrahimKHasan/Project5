@@ -1,8 +1,6 @@
 @extends('layouts.public.master')
 @section('title', 'Post')
 @section('content')
-
-
     <div class="container" id="download-opera">
         <div class="get-opera">
             <div class="get-opera-closer">
@@ -138,13 +136,17 @@
 
 
 
+                            @if (!session()->has('email'))
                             <a component="topic/reply/guest"
-                                href="https://forums.opera.com/auth/opera?return_path=%2Ftopic%2F53324%2Fdo-i-wanna-auto-refresh-opera-or-disable-refresh-in-my-case%3F"
+                                href="{{route('login')}}"
                                 data-base-href="/auth/opera" class="btn btn-sm btn-primary operaLoginButton" rel="nofollow"
                                 target="_top">Log in to reply</a>
-
-
-
+                                @else
+                                <a component="topic/reply/guest"
+                                href="{{route('login')}}"
+                                data-base-href="/auth/opera" class="btn btn-sm btn-primary operaLoginButton" rel="nofollow"
+                                target="_top">Add Comment</a>
+                                @endif
                         </div>
 
                     </div>
@@ -214,12 +216,12 @@
                                             class="timeago" title="2021-12-23T21:38:55.651Z"></span></a>
                                 </span>
                             </small>
-                            <p dir="auto"> {{ $posts[0]->post_body }}
+                            <p dir="auto"> {!! $posts[0]->post_body!!}
                             </p>
+
                         </div>
                         <div class="clearfix post-footer">
                             <small class="pull-right post-footer-menu">
-                                <span class="post-tools">
                                     <a component="post/reply" href="#" class="no-select hidden">Reply</a>
                                     <a component="post/quote" href="#" class="no-select hidden">Quote</a>
                                 </span>

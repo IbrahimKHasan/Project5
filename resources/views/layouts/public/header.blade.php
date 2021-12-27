@@ -22,6 +22,9 @@
     <meta property="og:image:height" content="192" />
     <meta property="og:title" content="Opera forums" />
     <meta property="og:url" content="index.html" />
+    <link rel="stylesheet" href="css/user-profile.css">
+
+
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/client0606.css?v=91djilae11a') }}" />
     <link rel="icon" type="image/x-icon" href="{{ asset('black') }}/img/logo.png" />
@@ -98,7 +101,7 @@
                     </button>
                     <div style="display:flex">
                         <a href="/main"><img style='margin:10px' alt=""  src="{{ asset('black') }}/img/logo.png" width="60px" height="60px" /></a>
-                        <span><h1>DP</h1></span>
+                        <a href="/main"><span><h1>DP</h1></span>,</a>
                     </div>
                     <div component="navbar/title" class="visible-xs hidden">
                         <span></span>
@@ -121,13 +124,13 @@
                     <ul id="logged-out-menu" class="nav navbar-nav navbar-right">
                         <li class="login">
                             <a class="operaLoginButton"
-                                href=""
+                                href="/user_profile"
                                 data-base-href="/auth/opera" rel="nofollow" target="_top">
                                 <img src='{{asset("black/img/".session('image'))}}' width="40px" height="40px" alt="" style="margin-bottom: 5px">
                             </a>
                         </li>
                         <li class="login">
-                            <a class="operaLoginButton" rel="nofollow" target="_top">
+                            <a href="/user_profile" class="operaLoginButton" rel="nofollow" target="_top">
                                 <span class="btn" style="background-color: #46D2EB;color:white"><?php echo session('name') ?></span>
                             </a>
                         </li>
@@ -157,7 +160,7 @@
                     <?php } ?>
                     <ul class="nav navbar-nav navbar-right"  >
                         <li class="login">
-                            <a href="add/addPost" class="operaLoginButton" rel="nofollow" target="_top">
+                            <a href="{{route('add_post')}}" class="operaLoginButton" rel="nofollow" target="_top">
                                 <span class="btn" style="background-color: #46D2EB;color:white">Add Post</span>
                             </a>
                         </li>

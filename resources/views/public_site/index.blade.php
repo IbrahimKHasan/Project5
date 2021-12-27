@@ -70,7 +70,6 @@
                                                      ->where('category_id', $category->category_id)
                                                      ->count(); ?>
                                                 </a>
-
                                             </h2>
 
                                             <div class="description">

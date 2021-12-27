@@ -1,7 +1,6 @@
 @extends('layouts.public.master')
 @section('content')
-
-
+<body>
     <div class="container" id="download-opera">
         <div class="get-opera">
             <div class="get-opera-closer">
@@ -49,7 +48,7 @@
 
         </div>
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12" style="margin-left:70px">
 
                 <h1 class="section-title">Posts about {{ $cat_name }} </h1>
 
@@ -78,13 +77,13 @@
                                         </h2>
 
                                         <div class="description">
-                                            <p>{{ $post->post_body }}</p>
+                                            <p>{!! $post->post_body !!}</p>
                                         </div>
 
                                     </div>
 
 
-
+{{--
                                     <span class="visible-xs col-xs-12">
 
                                         <a class="permalink"
@@ -92,11 +91,11 @@
                                             <small class="timeago" title="2021-12-26T19:11:39.634Z"></small>
                                         </a>
 
-                                    </span>
+                                    </span> --}}
 
                                 </div>
 
-                                <span class="col-md-12 col-xs-12 box-footer"><a
+                                {{-- <span class="col-md-12 col-xs-12 box-footer"><a
                                         href="category/11/opera-for-windows.html"><span class="fa-stack fa-lg"><i
                                                 style="color: #f2f2f2;" class="fa fa-circle fa-stack-2x"></i><i
                                                 style="color:#00abef;"
@@ -118,14 +117,14 @@
                                             class="fa-stack fa-lg"><i style="color: #f2f2f2;"
                                                 class="fa fa-circle fa-stack-2x"></i><i style="color:#009687;"
                                                 class="fa fa-stack-1x fa-thumbs-up"></i></span><small>Suggestions and
-                                            feature requests</small></a> </span>
+                                            feature requests</small></a> </span> --}}
 
                             </div>
 
                         </li>
                     @endforeach
                 </ul>
-                <div component="pagination" class="text-center pagination-container hidden">
+                {{-- <div component="pagination" class="text-center pagination-container hidden">
                     <ul class="pagination hidden-xs">
                         <li class="previous pull-left disabled">
                             <a href="indexd41d.html?" data-page="1"><i class="fa fa-chevron-left"></i> </a>
@@ -167,7 +166,7 @@
         </div>
         <div data-widget-area="footer">
 
-        </div>
+        </div> --}}
 
     </div><!-- /.container#content -->
     </main>
@@ -178,4 +177,5 @@
             <p>Looks like your connection to Opera forums was lost, please wait while we try to reconnect.</p>
         </div>
     </div>
+</body>
 @endsection
