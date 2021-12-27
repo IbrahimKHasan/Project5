@@ -68,6 +68,9 @@ class RegisterController extends Controller
         $data['image']->move(public_path('black/img'),$image);
         session_start();
         $_SESSION['email']=$data['email'];
+        session(['name'=>$data['name']]);
+        session(['email'=>$data['email']]);
+        session(['image'=>$data['image']]);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
