@@ -35,16 +35,17 @@
 
               $posts =DB::table('posts')->where('user_id',session('id'))->get();
               ?>
+              @include('alerts.success')
+              <h4 class="mb-3" style="color: #ff3f18">Posts</h4>
               @foreach ($posts as $item)
             <div class="row gutters-sm">
               <div class="col-12">
-                <h4 class="mb-3" style="color: #ff3f18">Posts</h4>
                 <div class="row mb-3">
                   <div class="col-md-12 col-sm-12">
                     <div class="card">
                       <div class="card-body">
-                        <h5 class="card-title">{{$item->post_title}}</h5>
-                        <p class="card-text">{{$item->post_body}} </p>
+                        <a href="{{'./index/post/'.$item->post_id}}"><h5 class="card-title">{{$item->post_title}}</h5></a>
+                        <p class="card-text">{!! $item->post_body !!} </p>
                         <form style="display: inline-block" action="{{route('profile_delete',$item->post_id)}}" method="POST">
                           @csrf
                           @method("delete")

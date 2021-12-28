@@ -1,6 +1,7 @@
 @extends('layouts.public.master')
 @section('title', 'Post')
 @section('content')
+@include('alerts.success')
     <div class="container" id="download-opera">
         <div class="get-opera">
             <div class="get-opera-closer">
@@ -61,18 +62,18 @@
                     </h1>
 
                     <div class="topic-info clearfix">
-                        <div class="category-item inline-block">
+                        {{-- <div class="category-item inline-block">
                             <div role="presentation" class="icon pull-left"
                                 style="background-color: #00abef; color: #ffffff;">
                                 <i class="fa fa-fw fa-windows"></i>
                             </div>
                             <a href="https://forums.opera.com/category/11/opera-for-windows">Opera for Windows</a>
-                        </div>
+                        </div> --}}
 
                         <div class="tags tag-list inline-block hidden-xs">
 
                         </div>
-                        <div class="inline-block hidden-xs">
+                        {{-- <div class="inline-block hidden-xs">
                             <div class="stats text-muted">
                                 <i class="fa fa-fw fa-user" title="Posters"></i>
                                 <span title="3" class="human-readable-number">3</span>
@@ -85,14 +86,14 @@
                                 <i class="fa fa-fw fa-eye" title="Views"></i>
                                 <span class="human-readable-number" title="98">98</span>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <a class="hidden-xs" target="_blank" href="https://forums.opera.com/topic/53324.rss"><i
+                        {{-- <a class="hidden-xs" target="_blank" href="https://forums.opera.com/topic/53324.rss"><i
                                 class="fa fa-rss-square"></i></a>
 
                         <div component="topic/browsing-users" class="inline-block hidden-xs">
 
-                        </div>
+                        </div> --}}
 
                         <div class="topic-main-buttons pull-right inline-block">
                             <span class="loading-indicator btn pull-left hidden" done="0">
@@ -136,7 +137,7 @@
 
 
 
-                            @if (!session()->has('email'))
+                            {{-- @if (!session()->has('email'))
                             <a component="topic/reply/guest"
                                 href="{{route('login')}}"
                                 data-base-href="/auth/opera" class="btn btn-sm btn-primary operaLoginButton" rel="nofollow"
@@ -146,7 +147,7 @@
                                 href="{{route('login')}}"
                                 data-base-href="/auth/opera" class="btn btn-sm btn-primary operaLoginButton" rel="nofollow"
                                 target="_top">Add Comment</a>
-                                @endif
+                                @endif --}}
                         </div>
 
                     </div>
@@ -209,7 +210,7 @@
                                 <span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
                             </small>
                             <small class="pull-right">
-                                <i component="post/edit-indicator" class="fa fa-pencil-square edit-icon "></i>
+                                {{-- <i component="post/edit-indicator" class="fa fa-pencil-square edit-icon "></i> --}}
                                 <span
                                     class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
                                     <a class="permalink" href="https://forums.opera.com/post/270618"><span
@@ -221,14 +222,14 @@
                         <form action="{{route('add_comment')}}" method="post" role="form" component="profile/edit/form">
                           @csrf
                           <div class="form-group">
-                              <label for="birthday">Write a Reply</label>
+                              <label for="birthday">Write a Comment</label>
                               <textarea class="ckeditor form-control" name="comment"></textarea>
                               <input type="hidden" name="post_id" value="{{$posts[0]->post_id}}" id="">
                           </div>
                           <input type="submit" name="submit" value="Add Comment">
                       </form>
                         </div>
-                        <div class="clearfix post-footer">
+                        {{-- <div class="clearfix post-footer">
                             <small class="pull-right post-footer-menu">
                                     <a component="post/reply" href="#" class="no-select hidden">Reply</a>
                                     <a component="post/quote" href="#" class="no-select hidden">Quote</a>
@@ -270,7 +271,7 @@
                             </a>
 
                             <div component="post/replies/container"></div>
-                        </div>
+                        </div> --}}
 
                     </li>
                     @foreach ($comments as $comment)
@@ -312,7 +313,7 @@
                                     <span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
                                 </small>
                                 <small class="pull-right">
-                                    <i component="post/edit-indicator" class="fa fa-pencil-square edit-icon "></i>
+                                    {{-- <i component="post/edit-indicator" class="fa fa-pencil-square edit-icon "></i> --}}
                                     <span
                                         class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
                                         <a class="permalink" href="https://forums.opera.com/post/270618"><span
@@ -325,7 +326,7 @@
 
                             <div class="clearfix post-footer">
 
-
+{{--
                                 <small class="pull-right post-footer-menu">
                                     <span class="post-tools">
                                         <a component="post/reply" href="#" class="no-select hidden">Reply</a>
@@ -354,9 +355,9 @@
                                         <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
                                     </span>
 
-                                </small>
+                                </small> --}}
 
-
+{{--
                                 <a component="post/reply-count" data-target-component="post/replies/container" href="#"
                                     class="threaded-replies no-select ">
                                     <span component="post/reply-count/avatars" class="avatars hidden ">
@@ -376,7 +377,7 @@
                                     <i class="fa fa-fw fa-chevron-right" component="post/replies/open"></i>
                                     <i class="fa fa-fw fa-chevron-down hidden" component="post/replies/close"></i>
                                     <i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
-                                </a>
+                                </a> --}}
 
                                 <div component="post/replies/container"></div>
                             </div>

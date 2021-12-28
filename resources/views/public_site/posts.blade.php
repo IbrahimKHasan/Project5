@@ -2,6 +2,7 @@
 @section('content')
 <body>
     <div class="container" id="download-opera">
+
         <div class="get-opera">
             <div class="get-opera-closer">
                 <svg width="24px" height="24px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +44,7 @@
         </noscript>
 
 
-
+        @include('alerts.success')
         <div data-widget-area="header">
 
         </div>

@@ -40,7 +40,7 @@
                         {{$comment->comment_id}}
                       </td>
                       <td class="text-center">
-                        {{$comment->comment}}
+                        {!! $comment->comment !!}
                       </td>
                       <td class="text-center">
                         {{$comment->name}}

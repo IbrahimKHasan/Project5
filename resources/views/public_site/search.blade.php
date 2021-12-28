@@ -78,7 +78,7 @@
                                         </h2>
 
                                         <div class="description">
-                                            <p>{{ $post->post_body }}</p>
+                                            <p>{!! $post->post_body !!}</p>
                                         </div>
 
                                     </div>
