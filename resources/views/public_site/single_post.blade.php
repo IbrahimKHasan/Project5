@@ -59,6 +59,7 @@
                             </span>
                             {{ $posts[0]->post_title }}
                         </span>
+
                     </h1>
 
                     <div class="topic-info clearfix">
@@ -187,47 +188,30 @@
                         </div>
 
                         <div class="content" component="post/content" itemprop="text">
-                            <small class="post-author">
                                 <strong>
                                     <a href="https://forums.opera.com/user/lillollo" itemprop="author"
                                         data-username="lillollo" data-uid="289478">{{ $posts[0]->name }}</a>
-                                </strong>
-
-
-
-
-
-                                <span
-                                    class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-
-                                    <span>
-
-                                    </span>
-                                </span>
-
-                            </small>
-                            <small class="pull-right">
-                                <span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
-                            </small>
-                            <small class="pull-right">
-                                {{-- <i component="post/edit-indicator" class="fa fa-pencil-square edit-icon "></i> --}}
-                                <span
-                                    class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-                                    <a class="permalink" href="https://forums.opera.com/post/270618"><span
-                                            class="timeago" title="2021-12-23T21:38:55.651Z"></span></a>
-                                </span>
-                            </small>
-                            <p dir="auto"> {!! $posts[0]->post_body!!}
-                            </p>
-                        <form action="{{route('add_comment')}}" method="post" role="form" component="profile/edit/form">
-                          @csrf
-                          <div class="form-group">
-                              <label for="birthday">Write a Comment</label>
-                              <textarea class="ckeditor form-control" name="comment"></textarea>
-                              <input type="hidden" name="post_id" value="{{$posts[0]->post_id}}" id="">
-                          </div>
-                          <input type="submit" name="submit" value="Add Comment">
-                      </form>
+                                </strong><br>
+                            <small style="color:rgb(173, 173, 173)">{{ $posts[0]->created_at}}</small>
+                            <p dir="auto"> {!! $posts[0]->post_body!!}</p>
+                            <?php $tag = explode(',',$posts[0]->post_tag) ?>
+                            @foreach ($tag as $item)
+                            <span style="background-color:#0597d9;color:white;display:inline-block;width:fit-content;height:25px">
+                                <p style="padding:0px 5px">#{!! $item !!}</p>
+                            </span>
+                            @endforeach
+                            @if (Auth::user() !== null)
+                            <form action="{{route('add_comment')}}" method="post" role="form" component="profile/edit/form">
+                              @csrf
+                              <div class="form-group">
+                                <br>
+                                  <label for="birthday">Write a Comment</label>
+                                  <textarea class="ckeditor form-control" name="comment"></textarea>
+                                  <input type="hidden" name="post_id" value="{{$posts[0]->post_id}}" id="">
+                              </div>
+                              <input type="submit" name="submit" value="Add Comment">
+                          </form>
+                            @endif
                         </div>
                         {{-- <div class="clearfix post-footer">
                             <small class="pull-right post-footer-menu">
@@ -274,6 +258,7 @@
                         </div> --}}
 
                     </li>
+                    <h2>Comments</h2>
                     @foreach ($comments as $comment)
                         <li component="post" class="  topic-owner-post" data-index="0" data-pid="270618" data-uid="289478"
                             data-timestamp="1640295535651" data-username="lillollo" data-userslug="lillollo" itemscope
@@ -299,32 +284,17 @@
                                     <strong>
                                         <a href="https://forums.opera.com/user/lillollo" itemprop="author"
                                             data-username="lillollo" data-uid="289478">{!! $comment->name !!}</a>
+                                            <small style="color:rgb(197, 197, 197);display:block">{!! $comment->created_at !!}</small>
                                     </strong>
-                                    <span
-                                        class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+                                <p dir="auto"> {!! $comment->comment !!}</p>
+                                  </small>
 
-                                        <span>
-
-                                        </span>
-                                    </span>
-
-                                </small>
-                                <small class="pull-right">
-                                    <span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
-                                </small>
-                                <small class="pull-right">
-                                    {{-- <i component="post/edit-indicator" class="fa fa-pencil-square edit-icon "></i> --}}
-                                    <span
-                                        class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-                                        <a class="permalink" href="https://forums.opera.com/post/270618"><span
-                                                class="timeago" title="2021-12-23T21:38:55.651Z"></span></a>
-                                    </span>
-                                </small>
-                                <p dir="auto"> {!! $comment->comment !!}
-                                </p>
                             </div>
 
-                            <div class="clearfix post-footer">
+                          </li>
+                          @endforeach
+                  </ul>
+
 
 {{--
                                 <small class="pull-right post-footer-menu">
@@ -379,12 +349,6 @@
                                     <i class="fa fa-fw fa-spin fa-spinner hidden" component="post/replies/loading"></i>
                                 </a> --}}
 
-                                <div component="post/replies/container"></div>
-                            </div>
-
-                        </li>
-                    @endforeach
-                </ul>
                 <div class="pagination-block text-center">
                     <div class="progress-bar"></div>
                     <div class="wrapper dropup">
