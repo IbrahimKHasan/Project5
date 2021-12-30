@@ -5,6 +5,8 @@ use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserProfileController extends Controller
 {
@@ -22,7 +24,7 @@ class UserProfileController extends Controller
   public function add(Request $request)
   {
     // dd($request->post_id);
-    $id = DB::table('users')->where('email', session('email'))->value('id');
+    $id = Auth::user()->id;
     Comment::create([
         'comment'=>$request->comment,
         'user_id'=>$id,
