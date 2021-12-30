@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -22,7 +22,7 @@ class PublicPagesController extends Controller
         return view('public_site.posts',compact('categories','cat_name'));
     }
     public function store(Request $request){
-        $id = DB::table('users')->where('email', session('email'))->value('id');
+        $id = Auth::user()->id;
         Post::create([
             'post_title'=>$request->post_title,
             'post_body'=>$request->post_body,
