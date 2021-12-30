@@ -68,5 +68,17 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <style>
+        .pagi *{
+          display: inline-block;
+
+        }
+      </style>
+        <div class="col-md-12 pagi">
+          {{ $comments->links() }}
+        </div>
+
+    </div>
   </div>
 @endsection
