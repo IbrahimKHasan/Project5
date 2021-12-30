@@ -58,7 +58,7 @@
                         {{$post->post_title}}
                       </td>
                       <td class="text-center">
-                        {{$post->post_body}}
+                        {!! $post->post_body !!}
                       </td>
                       <td class="text-center">
                         {{$post->name}}
